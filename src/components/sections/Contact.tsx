@@ -366,7 +366,7 @@ export default function Contact() {
       </div>
       <section id="resume">
       <h2>Resume</h2>
-       <a style={{ display: "flex", alignItems: "center", gap: 8  }} href="./Sujal_Kumar.pdf" download>Download My Resume </a>
+       <a style={{ display: "flex", alignItems: "center", gap: 8  }} href="./Sujal_kumar.pdf" download>Download My Resume </a>
   </section>
       <style>{`
         @media (max-width: 768px) {
