@@ -365,7 +365,7 @@ export default function Contact() {
         </div>
       </div>
 <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">
-  <a href="/Sujal_kumar.pdf download" target="_blank">
+  <a href="../public/Sujal_kumar.pdf download" target="_blank">
     View Resume
   </a>
 </button>
