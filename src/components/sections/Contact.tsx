@@ -364,10 +364,11 @@ export default function Contact() {
           </motion.form>
         </div>
       </div>
-      <section id="resume">
-      <h2>Resume</h2>
-       <a style={{ display: "flex", alignItems: "center", gap: 8  }} href="./Sujal_kumar.pdf" download>Download My Resume </a>
-  </section>
+<button className="bg-blue-500 text-white px-4 py-2 rounded-lg">
+  <a href="/Sujal_kumar.pdf download" target="_blank">
+    View Resume
+  </a>
+</button>
       <style>{`
         @media (max-width: 768px) {
           .contact-grid { grid-template-columns: 1fr !important; }
