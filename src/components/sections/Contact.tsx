@@ -364,11 +364,16 @@ export default function Contact() {
           </motion.form>
         </div>
       </div>
-<button className="bg-blue-500 text-white px-4 py-2 rounded-lg">
-  <a href="../public/Sujal_kumar.pdf download" target="_blank">
-    View Resume
-  </a>
-</button>
+    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
+        <a 
+          href="/sujal_kumar_resume.pdf" 
+          download="Sujal_Kumar_Resume.pdf"
+          className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors"
+          style={{ textDecoration: 'none', fontWeight: 500, fontFamily: 'Inter, sans-serif' }}
+        > 
+          Download Resume
+        </a>
+      </div>
       <style>{`
         @media (max-width: 768px) {
           .contact-grid { grid-template-columns: 1fr !important; }
