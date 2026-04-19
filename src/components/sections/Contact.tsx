@@ -364,7 +364,11 @@ export default function Contact() {
           </motion.form>
         </div>
       </div>
+<<<<<<< Updated upstream
     <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
+=======
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
+>>>>>>> Stashed changes
         <a 
           href="/sujal_kumar_resume.pdf" 
           download="Sujal_Kumar_Resume.pdf"
