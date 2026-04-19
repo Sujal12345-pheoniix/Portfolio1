@@ -8,9 +8,9 @@ export const metadata: Metadata = {
   description:
     "Full Stack Developer & AI Enthusiast. Building scalable web applications and intelligent systems that solve real problems.",
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
   keywords: [
     "developer",
