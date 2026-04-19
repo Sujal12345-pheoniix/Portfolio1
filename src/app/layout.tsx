@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
-
+<link rel="icon" type="image/png" href="/favicon.png" />
 export const metadata: Metadata = {
   title: "Sujal Kumar — Full Stack Developer & AI Builder",
   description:
