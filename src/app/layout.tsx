@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: "Sujal Kumar — Full Stack Developer & AI Builder",
   description:
     "Full Stack Developer & AI Enthusiast. Building scalable web applications and intelligent systems that solve real problems.",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   keywords: [
     "developer",
     "full stack",
