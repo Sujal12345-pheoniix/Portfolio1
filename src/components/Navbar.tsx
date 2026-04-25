@@ -8,6 +8,7 @@ import { Sun, Moon, Menu, X } from "lucide-react";
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
+  { label: "Services", href: "#services" },
   { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
@@ -146,6 +147,36 @@ export default function Navbar() {
           >
             {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
           </button>
+
+          <a
+            href="#services"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              padding: "8px 18px",
+              background: "var(--gradient-primary)",
+              borderRadius: 6,
+              fontSize: "0.82rem",
+              fontFamily: "Inter, sans-serif",
+              fontWeight: 600,
+              color: "#fff",
+              letterSpacing: "0.01em",
+              transition: "all 0.25s ease",
+              boxShadow: "0 2px 12px rgba(59,130,246,0.3)",
+              textDecoration: "none",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 20px rgba(59,130,246,0.45)";
+              (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-1px)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 2px 12px rgba(59,130,246,0.3)";
+              (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+            }}
+          >
+            Hire Me ✦
+          </a>
         </div>
 
         {/* Mobile toggle */}
@@ -200,6 +231,24 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
+              <a
+                href="#services"
+                onClick={() => setOpen(false)}
+                style={{
+                  display: "block",
+                  textAlign: "center",
+                  padding: "10px 14px",
+                  background: "var(--gradient-primary)",
+                  borderRadius: 6,
+                  fontSize: "0.875rem",
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 600,
+                  color: "#fff",
+                  textDecoration: "none",
+                }}
+              >
+                Hire Me ✦
+              </a>
               <button
                 onClick={() => { toggle(); setOpen(false); }}
                 style={{

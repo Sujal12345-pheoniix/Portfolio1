@@ -16,6 +16,23 @@ const experiences = [
       "Integrated OpenAI APIs (GPT-4, embeddings, RAG) to power AI-featured applications",
     ],
     color: "#3b82f6",
+    highlight: false,
+  },
+  {
+    title: "Web Development Intern",
+    company: "CodSoft",
+    duration: "Jun 2024 – Aug 2024",
+    type: "Internship · 2 months",
+    highlight: true,
+    bullets: [
+      "Completed a 2-month intensive internship working on real-world web development projects with production-level expectations",
+      "Built responsive, pixel-perfect front-end interfaces using HTML, CSS, JavaScript, and React — delivered 3 production-grade projects",
+      "Developed a fully functional landing page and a calculator app with clean architecture and mobile-first design principles",
+      "Learned professional development workflows — Git branching strategies, code reviews, task management, and deadline-driven delivery",
+      "Gained hands-on experience with REST API integration, form validation, and state management in a team-oriented environment",
+      "Received a certificate of completion and letter of recommendation for exceptional performance and consistent delivery",
+    ],
+    color: "#f59e0b",
   },
   {
     title: "AI Integration Developer",
@@ -29,6 +46,7 @@ const experiences = [
       "Deployed applications on Vercel with CI/CD, monitoring, and performance optimizations",
     ],
     color: "#8b5cf6",
+    highlight: false,
   },
   {
     title: "Frontend Developer",
@@ -42,6 +60,7 @@ const experiences = [
       "Completed system design courses to understand scalability, caching, and distributed systems",
     ],
     color: "#14b8a6",
+    highlight: false,
   },
 ];
 
@@ -175,11 +194,14 @@ function TimelineEntry({
           position: "absolute",
           left: -44,
           top: 6,
-          width: 9,
-          height: 9,
+          width: exp.highlight ? 13 : 9,
+          height: exp.highlight ? 13 : 9,
           borderRadius: "50%",
           background: exp.color,
-          boxShadow: `0 0 0 3px var(--bg), 0 0 0 4px ${exp.color}55`,
+          boxShadow: exp.highlight
+            ? `0 0 0 3px var(--bg), 0 0 0 4px ${exp.color}, 0 0 12px ${exp.color}55`
+            : `0 0 0 3px var(--bg), 0 0 0 4px ${exp.color}55`,
+          marginLeft: exp.highlight ? -2 : 0,
         }}
       />
 
@@ -187,10 +209,12 @@ function TimelineEntry({
       <div
         style={{
           background: "var(--bg)",
-          border: "1px solid var(--border)",
+          border: exp.highlight ? `1px solid ${exp.color}33` : "1px solid var(--border)",
           borderRadius: 8,
           padding: "28px 32px",
           transition: "border-color 0.25s ease, box-shadow 0.25s ease",
+          position: "relative",
+          overflow: "hidden",
         }}
         onMouseEnter={(e) => {
           const el = e.currentTarget as HTMLDivElement;
@@ -199,10 +223,14 @@ function TimelineEntry({
         }}
         onMouseLeave={(e) => {
           const el = e.currentTarget as HTMLDivElement;
-          el.style.borderColor = "var(--border)";
+          el.style.borderColor = exp.highlight ? `${exp.color}33` : "var(--border)";
           el.style.boxShadow = "none";
         }}
       >
+        {/* Highlight accent bar for internships */}
+        {exp.highlight && (
+          <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: `linear-gradient(90deg, ${exp.color}, ${exp.color}55)` }} />
+        )}
         {/* Top row */}
         <div
           style={{
@@ -226,6 +254,11 @@ function TimelineEntry({
               }}
             >
               {exp.title}
+              {exp.highlight && (
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 4, marginLeft: 10, fontSize: "0.6rem", fontFamily: "DM Mono, monospace", padding: "2px 8px", background: `${exp.color}18`, border: `1px solid ${exp.color}33`, borderRadius: 100, color: exp.color, letterSpacing: "0.06em", textTransform: "uppercase", verticalAlign: "middle", fontWeight: 500 }}>
+                  ✦ Verified Internship
+                </span>
+              )}
             </h3>
             <p
               style={{

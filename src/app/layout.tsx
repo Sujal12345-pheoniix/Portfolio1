@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
-<link rel="icon" type="image/png" href="/favicon.png?v=2" /> 
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Sujal Kumar — Full Stack Developer & AI Builder",
   description:
     "Full Stack Developer & AI Enthusiast. Building scalable web applications and intelligent systems that solve real problems.",
   icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/icon.png",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   keywords: [
     "developer",
@@ -44,19 +50,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&family=Georgia&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>
+      <body className={inter.className}>
         <ThemeProvider>
           <Navbar />
           <main>{children}</main>
