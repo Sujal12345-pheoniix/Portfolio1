@@ -1,13 +1,13 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Briefcase, Award, Star, Mail, Heart, MessageSquare, CheckCircle, AlertCircle, Send } from "lucide-react";
 
 const hireOptions = [
-  { icon: Briefcase, title: "JOB", desc: "Full-time position at your company.", color: "#3b82f6" },
-  { icon: Award, title: "INTERN", desc: "Internship opportunities and learning.", color: "#8b5cf6" },
-  { icon: Star, title: "FREELANCE", desc: "Project-based work and gigs.", color: "#14b8a6" },
+  { icon: Briefcase, title: "JOB", desc: "Full-time position at your company.", color: "#3b82f6", formTitle: "Proposing a Job Offer", emoji: "💼" },
+  { icon: Award, title: "INTERN", desc: "Internship opportunities and learning.", color: "#8b5cf6", formTitle: "Proposing an Internship Offer", emoji: "🎓" },
+  { icon: Star, title: "FREELANCE", desc: "Project-based work and gigs.", color: "#14b8a6", formTitle: "Proposing a Freelance Project", emoji: "🚀" },
 ];
 
 const quickActions = [
@@ -45,7 +45,7 @@ export default function Services() {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          _subject: `🚀 Job Offer: ${form.designation} at ${form.company}`,
+          _subject: `${hireOptions[activeHire].emoji} ${hireOptions[activeHire].title} Offer: ${form.designation} at ${form.company}`,
           _template: "table",
           "Company Name": form.company,
           "Email": form.email,
@@ -129,9 +129,19 @@ export default function Services() {
 
         {/* Job Offer Form */}
         <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.3 }}>
-          <p style={{ fontSize: "0.72rem", fontFamily: "DM Mono, monospace", color: "var(--accent)", letterSpacing: "0.14em", textTransform: "uppercase", textAlign: "center", marginBottom: 32 }}>
-            Proposing a Job Offer
-          </p>
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={activeHire}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              style={{ fontSize: "0.82rem", fontFamily: "DM Mono, monospace", color: hireOptions[activeHire].color, letterSpacing: "0.14em", textTransform: "uppercase", textAlign: "center", marginBottom: 32, display: "flex", alignItems: "center", justifyContent: "center", gap: 10, transition: "color 0.3s ease" }}
+            >
+              <span style={{ fontSize: "1.2rem" }}>{hireOptions[activeHire].emoji}</span>
+              {hireOptions[activeHire].formTitle}
+            </motion.p>
+          </AnimatePresence>
 
           <form onSubmit={handleSubmit} style={{ maxWidth: 820, margin: "0 auto", background: "var(--bg)", border: "1px solid var(--border)", borderRadius: 12, padding: "36px 32px" }}>
             {/* Row 1: Company, Email, Designation */}

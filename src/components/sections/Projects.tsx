@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { GitBranch, ExternalLink } from "lucide-react";
 
@@ -102,6 +102,55 @@ const caseStudyLabels = [
   { key: "learned", label: "Learned" },
 ] as const;
 
+/* Floating 3D geometric shapes for section decoration */
+function FloatingShapes() {
+  return (
+    <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 0 }}>
+      {/* Rotating wireframe cube - top right */}
+      <motion.div
+        animate={{ rotate: 360, y: [0, -20, 0] }}
+        transition={{ rotate: { duration: 25, repeat: Infinity, ease: "linear" }, y: { duration: 6, repeat: Infinity, ease: "easeInOut" } }}
+        style={{ position: "absolute", top: "5%", right: "8%", width: 60, height: 60, border: "1px solid rgba(59,130,246,0.15)", borderRadius: 8, transform: "perspective(200px) rotateX(15deg) rotateY(15deg)" }}
+      />
+      
+      {/* Pulsing sphere - left side */}
+      <motion.div
+        animate={{ scale: [1, 1.2, 1], opacity: [0.12, 0.25, 0.12] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        style={{ position: "absolute", top: "30%", left: "3%", width: 40, height: 40, borderRadius: "50%", background: "radial-gradient(circle, rgba(139,92,246,0.3), transparent 70%)", boxShadow: "0 0 30px rgba(139,92,246,0.1)" }}
+      />
+      
+      {/* Floating triangle/diamond - mid left */}
+      <motion.div
+        animate={{ rotate: [0, 180, 360], y: [-10, 10, -10] }}
+        transition={{ rotate: { duration: 20, repeat: Infinity, ease: "linear" }, y: { duration: 5, repeat: Infinity, ease: "easeInOut" } }}
+        style={{ position: "absolute", top: "55%", left: "5%", width: 30, height: 30, border: "1px solid rgba(20,184,166,0.2)", transform: "rotate(45deg)" }}
+      />
+
+      {/* Orbiting ring - right side */}
+      <motion.div
+        animate={{ rotateY: [0, 360] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+        style={{ position: "absolute", top: "65%", right: "6%", width: 50, height: 50, borderRadius: "50%", border: "1.5px solid rgba(245,158,11,0.15)", transformStyle: "preserve-3d" }}
+      />
+      
+      {/* Dotted circle - bottom */}
+      <motion.div
+        animate={{ rotate: [0, -360] }}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        style={{ position: "absolute", bottom: "8%", left: "50%", width: 80, height: 80, borderRadius: "50%", border: "1px dashed rgba(59,130,246,0.1)", opacity: 0.5 }}
+      />
+
+      {/* Glowing orb accent */}
+      <motion.div
+        animate={{ x: [0, 20, 0], y: [0, -15, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        style={{ position: "absolute", top: "15%", left: "15%", width: 120, height: 120, borderRadius: "50%", background: "radial-gradient(circle, rgba(59,130,246,0.06), transparent 70%)", filter: "blur(20px)" }}
+      />
+    </div>
+  );
+}
+
 function ProjectCard({
   project,
   index,
@@ -114,14 +163,26 @@ function ProjectCard({
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const [activeTab, setActiveTab] = useState<"problem" | "approach" | "solution" | "learned">("problem");
   const [mousePos, setMousePos] = useState({ x: "50%", y: "50%" });
+  const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0 });
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const rect = cardRef.current?.getBoundingClientRect();
     if (!rect) return;
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
     setMousePos({ x: `${x}%`, y: `${y}%` });
-  };
+
+    // 3D tilt calculation
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const rotateY = ((e.clientX - centerX) / (rect.width / 2)) * 4;
+    const rotateX = -((e.clientY - centerY) / (rect.height / 2)) * 3;
+    setTilt({ rotateX, rotateY });
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setTilt({ rotateX: 0, rotateY: 0 });
+  }, []);
 
   return (
     <motion.article
@@ -129,10 +190,21 @@ function ProjectCard({
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+      style={{ perspective: "1200px" }}
     >
-      <div
+      <motion.div
         ref={cardRef}
         onMouseMove={handleMouseMove}
+        onMouseLeave={(e) => {
+          handleMouseLeave();
+          (e.currentTarget as HTMLDivElement).style.borderColor = "var(--border)";
+          (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
+        }}
+        animate={{
+          rotateX: tilt.rotateX,
+          rotateY: tilt.rotateY,
+        }}
+        transition={{ type: "spring", stiffness: 200, damping: 20, mass: 0.5 }}
         style={{
           background: "var(--surface)",
           border: "1px solid var(--border)",
@@ -140,14 +212,11 @@ function ProjectCard({
           overflow: "hidden",
           position: "relative",
           transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+          transformStyle: "preserve-3d",
         }}
         onMouseEnter={(e) => {
           (e.currentTarget as HTMLDivElement).style.borderColor = `${project.color}44`;
           (e.currentTarget as HTMLDivElement).style.boxShadow = `0 20px 60px -16px ${project.color}25`;
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLDivElement).style.borderColor = "var(--border)";
-          (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
         }}
       >
         {/* Spotlight overlay */}
@@ -156,6 +225,19 @@ function ProjectCard({
             position: "absolute",
             inset: 0,
             background: `radial-gradient(400px circle at ${mousePos.x} ${mousePos.y}, ${project.color}0d, transparent 60%)`,
+            pointerEvents: "none",
+            zIndex: 0,
+            borderRadius: "inherit",
+          }}
+        />
+
+        {/* 3D shine/reflection layer */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: `linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.02) 45%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.02) 55%, transparent 60%)`,
+            backgroundPosition: `${mousePos.x} ${mousePos.y}`,
             pointerEvents: "none",
             zIndex: 0,
             borderRadius: "inherit",
@@ -201,6 +283,7 @@ function ProjectCard({
                   justifyContent: "center",
                   fontSize: "1.4rem",
                   flexShrink: 0,
+                  transform: "translateZ(20px)",
                 }}
               >
                 {project.emoji}
@@ -388,13 +471,17 @@ function ProjectCard({
               borderTop: "1px solid var(--border)",
             }}
           >
-            {project.stack.map((tech) => (
+            {project.stack.map((tech, ti) => (
               <motion.span
                 key={tech}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.3, delay: index * 0.06 + 0.3 + ti * 0.04 }}
                 whileHover={{
                   scale: 1.07,
                   borderColor: project.color,
                   color: project.color,
+                  y: -2,
                 }}
                 style={{
                   padding: "4px 11px",
@@ -414,7 +501,7 @@ function ProjectCard({
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </motion.article>
   );
 }
@@ -430,15 +517,19 @@ export default function Projects() {
         maxWidth: 1100,
         margin: "0 auto",
         padding: "120px 24px",
+        position: "relative",
       }}
     >
+      {/* 3D Floating decorative shapes */}
+      <FloatingShapes />
+
       {/* Header */}
       <motion.div
         ref={titleRef}
         initial={{ opacity: 0, y: 16 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
-        style={{ marginBottom: 64 }}
+        style={{ marginBottom: 64, position: "relative", zIndex: 1 }}
       >
         <p
           style={{
@@ -495,6 +586,8 @@ export default function Projects() {
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gap: 24,
+          position: "relative",
+          zIndex: 1,
         }}
         className="projects-grid"
       >
