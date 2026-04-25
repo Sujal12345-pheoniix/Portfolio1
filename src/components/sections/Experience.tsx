@@ -21,7 +21,7 @@ const experiences = [
   {
     title: "Web Development Intern",
     company: "CodSoft",
-    duration: "Jun 2024 – Aug 2024",
+    duration: "Jun 2025 – Aug 2025",
     type: "Internship · 2 months",
     highlight: true,
     bullets: [
@@ -37,7 +37,7 @@ const experiences = [
   {
     title: "AI Integration Developer",
     company: "Personal Projects",
-    duration: "Aug 2024 – Dec 2024",
+    duration: "Aug 2025 – Dec 2025",
     type: "Project-based",
     bullets: [
       "Built Crick-Buddy — an AI-powered cricket companion with live scores, fantasy advice, and match predictions",
