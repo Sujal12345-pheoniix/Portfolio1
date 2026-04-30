@@ -9,6 +9,7 @@ import Experience from "@/components/sections/Experience";
 import Testimonials from "@/components/sections/Testimonials";
 import Experimental from "@/components/sections/Experimental";
 import Contact from "@/components/sections/Contact";
+import Sponsor from "@/components/sections/Sponsor";
 import Footer from "@/components/sections/Footer";
 
 export default function Page() {
@@ -24,6 +25,7 @@ export default function Page() {
       <Experience />
       <Testimonials />
       <Experimental />
+      <Sponsor />
       <Contact />
       <Footer />
     </>

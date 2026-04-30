@@ -271,7 +271,7 @@ function TimelineEntry({
               {exp.company}
             </p>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 6 }}>
+          <div className="flex flex-col sm:items-end gap-1.5 mt-2 sm:mt-0">
             <span
               style={{
                 fontSize: "0.72rem",

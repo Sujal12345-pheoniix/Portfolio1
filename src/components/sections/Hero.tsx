@@ -55,16 +55,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={containerRef}
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        padding: "120px 24px 100px",
-        maxWidth: 1100,
-        margin: "0 auto",
-        position: "relative",
-        overflow: "hidden",
-      }}
+      className="min-h-[100svh] flex items-center px-6 pt-32 pb-24 md:pt-40 md:pb-32 max-w-[1100px] mx-auto relative overflow-hidden w-full"
     >
       {/* Parallax dot grid */}
       <motion.div
@@ -163,8 +154,8 @@ export default function Hero() {
           <h1
             style={{
               fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
-              fontFamily: "Georgia, 'Times New Roman', serif",
-              fontWeight: 700,
+              fontFamily: "'Outfit', sans-serif",
+              fontWeight: 800,
               lineHeight: 1.08,
               letterSpacing: "-0.03em",
               color: "var(--fg)",
@@ -268,23 +259,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.85, duration: 0.6 }}
-          style={{
-            display: "flex",
-            gap: 0,
-            borderTop: "1px solid var(--border)",
-            paddingTop: 28,
-          }}
+          className="flex flex-col md:flex-row gap-8 md:gap-0 border-t border-[var(--border)] pt-8"
         >
           {stats.map((stat, i) => (
             <div
               key={stat.label}
-              style={{
-                flex: 1,
-                paddingRight: i < stats.length - 1 ? 28 : 0,
-                borderRight:
-                  i < stats.length - 1 ? "1px solid var(--border)" : "none",
-                paddingLeft: i > 0 ? 28 : 0,
-              }}
+              className={`flex-1 ${
+                i < stats.length - 1 ? "md:pr-7 md:border-r border-[var(--border)]" : ""
+              } ${i > 0 ? "md:pl-7" : ""}`}
             >
               <p
                 style={{
