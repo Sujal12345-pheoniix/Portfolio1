@@ -310,7 +310,6 @@ export default function Hero() {
           transition={{ delay: 1.2, duration: 0.6 }}
           style={{
             position: "absolute",
-            bottom: -60,
             bottom: -52,
             left: "50%",
             transform: "translateX(-50%)",

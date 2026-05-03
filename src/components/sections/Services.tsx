@@ -74,7 +74,7 @@ export default function Services() {
   const selectStyle: React.CSSProperties = { ...inputStyle, appearance: "none" as const, backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2371717a' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6.5 6.5 6.5-6.5'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 12px center", paddingRight: 36 };
 
   return (
-    <section id="services" style={{ background: "var(--surface)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)", padding: "120px 24px" }}>
+    <section id="services" className="section-stack section-alt" style={{ background: "var(--surface)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)", padding: "0 24px" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         {/* Header */}
         <motion.div ref={ref} initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} style={{ marginBottom: 56, textAlign: "center" }}>
@@ -239,6 +239,7 @@ export default function Services() {
         @media (max-width: 768px) {
           .services-grid { grid-template-columns: 1fr !important; }
           .offer-row-3 { grid-template-columns: 1fr !important; }
+          #services form { padding: 28px 20px !important; }
         }
         @media (min-width: 769px) and (max-width: 1024px) {
           .offer-row-3 { grid-template-columns: 1fr 1fr !important; }

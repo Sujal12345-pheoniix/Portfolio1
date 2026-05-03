@@ -71,11 +71,12 @@ export default function Experience() {
   return (
     <section
       id="experience"
+      className="section-stack section-alt"
       style={{
         background: "var(--surface)",
         borderTop: "1px solid var(--border)",
         borderBottom: "1px solid var(--border)",
-        padding: "120px 24px",
+        padding: "0 24px",
       }}
     >
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
@@ -141,6 +142,7 @@ export default function Experience() {
             position: "relative",
             paddingLeft: 40,
           }}
+          className="experience-shell"
         >
           {/* Vertical line */}
           <div
@@ -164,6 +166,12 @@ export default function Experience() {
       </div>
 
       <style>{`
+        @media (max-width: 768px) {
+          #experience .experience-shell { padding-left: 24px !important; }
+          #experience .experience-shell > div[style*="left: -44px"] { left: -32px !important; }
+          #experience .experience-shell > div > div { padding: 24px 20px !important; }
+        }
+
         @media (max-width: 640px) {
           #experience .exp-bullets { grid-template-columns: 1fr !important; }
         }

@@ -76,7 +76,8 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      style={{ background: "var(--surface)", borderTop: "1px solid var(--border)", padding: "120px 24px" }}
+      className="section-stack section-alt"
+      style={{ background: "var(--surface)", borderTop: "1px solid var(--border)", padding: "0 24px" }}
     >
       <div style={{ maxWidth: 1100, margin: "0 auto" }} ref={ref}>
         {/* Section header */}
@@ -194,6 +195,8 @@ export default function Contact() {
         @media (max-width: 768px) {
           .contact-grid { grid-template-columns: 1fr !important; }
           .form-row { grid-template-columns: 1fr !important; }
+          #contact .contact-grid > div,
+          #contact .contact-grid > form { padding: 24px 20px !important; }
         }
       `}</style>
     </section>

@@ -22,10 +22,10 @@ export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer style={{ background: "var(--bg)", borderTop: "1px solid var(--border)", padding: "60px 24px 32px" }}>
+    <footer className="section-stack" style={{ background: "var(--bg)", borderTop: "1px solid var(--border)", padding: "60px 24px 32px" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         {/* Top row */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 40, marginBottom: 48 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 40, marginBottom: 48 }} className="footer-top">
           {/* Brand */}
           <div style={{ maxWidth: 320 }}>
             <a href="#" style={{ fontFamily: "Georgia, serif", fontSize: "1.3rem", fontWeight: 700, color: "var(--fg)", display: "inline-flex", alignItems: "center", letterSpacing: "-0.03em", marginBottom: 12 }}>
@@ -76,7 +76,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div style={{ borderTop: "1px solid var(--border)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
+        <div style={{ borderTop: "1px solid var(--border)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }} className="footer-bottom">
           <p style={{ fontSize: "0.75rem", fontFamily: "DM Mono, monospace", color: "var(--muted)", letterSpacing: "0.04em" }}>
             Built by hand. No templates. © {new Date().getFullYear()} Sujal Kumar.
           </p>
@@ -86,6 +86,13 @@ export default function Footer() {
           </motion.button>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .footer-top { flex-direction: column !important; gap: 28px !important; }
+          .footer-bottom { flex-direction: column !important; align-items: flex-start !important; }
+        }
+      `}</style>
     </footer>
   );
 }

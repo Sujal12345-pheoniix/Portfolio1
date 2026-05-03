@@ -151,10 +151,11 @@ export default function Skills() {
   return (
     <section
       id="skills"
+      className="section-stack"
       style={{
         maxWidth: 1100,
         margin: "0 auto",
-        padding: "120px 24px",
+        padding: "0 24px",
       }}
     >
       {/* Header */}
@@ -219,6 +220,7 @@ export default function Skills() {
           gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
           gap: "32px 48px",
         }}
+        className="skills-grid"
       >
         {skillGroups.map((group) => (
           <motion.div
@@ -292,6 +294,12 @@ export default function Skills() {
           </motion.div>
         ))}
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          #skills .skills-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+        }
+      `}</style>
     </section>
   );
 }

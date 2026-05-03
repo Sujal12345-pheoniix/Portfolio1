@@ -22,7 +22,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section id="testimonials" style={{ maxWidth: 1100, margin: "0 auto", padding: "120px 24px" }}>
+    <section id="testimonials" className="section-stack" style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
       <motion.div ref={ref} initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} style={{ marginBottom: 64, textAlign: "center" }}>
         <p style={{ fontSize: "0.72rem", fontFamily: "DM Mono, monospace", color: "var(--blue)", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 14 }}>What people say</p>
         <h2 style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", fontFamily: "Georgia, serif", fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1.15, color: "var(--fg)" }}>Testimonials</h2>
@@ -58,6 +58,14 @@ export default function Testimonials() {
             style={{ width: active === i ? 28 : 8, height: 8, borderRadius: 4, background: active === i ? t.color : "var(--border)", border: "none", cursor: "pointer", transition: "all 0.3s ease" }} />
         ))}
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          #testimonials > div[style*="min-height: 220px"] > div {
+            padding: 30px 22px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

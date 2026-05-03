@@ -194,10 +194,11 @@ export default function About() {
   return (
     <section
       id="about"
+      className="section-stack"
       style={{
         maxWidth: 1100,
         margin: "0 auto",
-        padding: "120px 24px",
+        padding: "0 24px",
         position: "relative",
       }}
     >
@@ -231,6 +232,7 @@ export default function About() {
             gap: "48px 80px",
             alignItems: "start",
           }}
+          className="about-grid"
         >
           <motion.h2
             initial={{ opacity: 0, x: -30 }}
@@ -289,6 +291,7 @@ export default function About() {
           position: "relative",
           zIndex: 1,
         }}
+        className="about-facts"
       >
         {quickFacts.map((fact, i) => (
           <FactCard key={fact.label} fact={fact} index={i} inView={inView} />
@@ -375,6 +378,8 @@ export default function About() {
 
       <style>{`
         @media (max-width: 768px) {
+          #about .about-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+          #about .about-facts { grid-template-columns: 1fr !important; }
           #about > div:first-child > div:last-child { grid-template-columns: 1fr !important; }
           #about > div:last-child > div { grid-template-columns: 1fr !important; }
         }
