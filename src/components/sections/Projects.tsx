@@ -102,54 +102,7 @@ const caseStudyLabels = [
   { key: "learned", label: "Learned" },
 ] as const;
 
-/* Floating 3D geometric shapes for section decoration */
-function FloatingShapes() {
-  return (
-    <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 0 }}>
-      {/* Rotating wireframe cube - top right */}
-      <motion.div
-        animate={{ rotate: 360, y: [0, -20, 0] }}
-        transition={{ rotate: { duration: 25, repeat: Infinity, ease: "linear" }, y: { duration: 6, repeat: Infinity, ease: "easeInOut" } }}
-        style={{ position: "absolute", top: "5%", right: "8%", width: 60, height: 60, border: "1px solid rgba(59,130,246,0.15)", borderRadius: 8, transform: "perspective(200px) rotateX(15deg) rotateY(15deg)" }}
-      />
-      
-      {/* Pulsing sphere - left side */}
-      <motion.div
-        animate={{ scale: [1, 1.2, 1], opacity: [0.12, 0.25, 0.12] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        style={{ position: "absolute", top: "30%", left: "3%", width: 40, height: 40, borderRadius: "50%", background: "radial-gradient(circle, rgba(139,92,246,0.3), transparent 70%)", boxShadow: "0 0 30px rgba(139,92,246,0.1)" }}
-      />
-      
-      {/* Floating triangle/diamond - mid left */}
-      <motion.div
-        animate={{ rotate: [0, 180, 360], y: [-10, 10, -10] }}
-        transition={{ rotate: { duration: 20, repeat: Infinity, ease: "linear" }, y: { duration: 5, repeat: Infinity, ease: "easeInOut" } }}
-        style={{ position: "absolute", top: "55%", left: "5%", width: 30, height: 30, border: "1px solid rgba(20,184,166,0.2)", transform: "rotate(45deg)" }}
-      />
-
-      {/* Orbiting ring - right side */}
-      <motion.div
-        animate={{ rotateY: [0, 360] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-        style={{ position: "absolute", top: "65%", right: "6%", width: 50, height: 50, borderRadius: "50%", border: "1.5px solid rgba(245,158,11,0.15)", transformStyle: "preserve-3d" }}
-      />
-      
-      {/* Dotted circle - bottom */}
-      <motion.div
-        animate={{ rotate: [0, -360] }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        style={{ position: "absolute", bottom: "8%", left: "50%", width: 80, height: 80, borderRadius: "50%", border: "1px dashed rgba(59,130,246,0.1)", opacity: 0.5 }}
-      />
-
-      {/* Glowing orb accent */}
-      <motion.div
-        animate={{ x: [0, 20, 0], y: [0, -15, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        style={{ position: "absolute", top: "15%", left: "15%", width: 120, height: 120, borderRadius: "50%", background: "radial-gradient(circle, rgba(59,130,246,0.06), transparent 70%)", filter: "blur(20px)" }}
-      />
-    </div>
-  );
-}
+/* Floating decorative shapes removed to keep a calm, paper-like layout */
 
 function ProjectCard({
   project,
@@ -199,7 +152,8 @@ function ProjectCard({
         onMouseLeave={(e) => {
           handleMouseLeave();
           (e.currentTarget as HTMLDivElement).style.borderColor = "var(--border)";
-          (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
+          (e.currentTarget as HTMLDivElement).style.boxShadow = "0 10px 30px rgba(16,24,32,0.04)";
+          (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
         }}
         animate={{
           rotateX: tilt.rotateX,
@@ -209,41 +163,19 @@ function ProjectCard({
         style={{
           background: "var(--surface)",
           border: "1px solid var(--border)",
-          borderRadius: 10,
+          borderRadius: 12,
           overflow: "hidden",
           position: "relative",
-          transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+          transition: "transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease",
           transformStyle: "preserve-3d",
+          boxShadow: '0 10px 30px rgba(16,24,32,0.04)'
         }}
         onMouseEnter={(e) => {
-          (e.currentTarget as HTMLDivElement).style.borderColor = `${project.color}44`;
-          (e.currentTarget as HTMLDivElement).style.boxShadow = `0 20px 60px -16px ${project.color}25`;
+          (e.currentTarget as HTMLDivElement).style.borderColor = `${project.color}33`;
+          (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-6px)';
+          (e.currentTarget as HTMLDivElement).style.boxShadow = `0 18px 46px -12px rgba(16,24,32,0.06)`;
         }}
       >
-        {/* Spotlight overlay */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: `radial-gradient(400px circle at ${mousePos.x} ${mousePos.y}, ${project.color}0d, transparent 60%)`,
-            pointerEvents: "none",
-            zIndex: 0,
-            borderRadius: "inherit",
-          }}
-        />
-
-        {/* 3D shine/reflection layer */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: `linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.02) 45%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.02) 55%, transparent 60%)`,
-            backgroundPosition: `${mousePos.x} ${mousePos.y}`,
-            pointerEvents: "none",
-            zIndex: 0,
-            borderRadius: "inherit",
-          }}
-        />
 
         {/* Colored top edge */}
         <div
@@ -527,8 +459,7 @@ export default function Projects() {
         position: "relative",
       }}
     >
-      {/* 3D Floating decorative shapes */}
-      <FloatingShapes />
+      {/* decorative shapes removed for a calmer layout */}
 
       {/* Header */}
       <motion.div

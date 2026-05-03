@@ -67,22 +67,12 @@ export default function Navbar() {
             color: "var(--fg)",
             display: "flex",
             alignItems: "center",
-            gap: 0,
+            gap: 8,
           }}
         >
-          Sujal
-          <span
-            style={{
-              background: "var(--gradient-text)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              fontFamily: "Inter, sans-serif",
-              fontWeight: 700,
-              fontSize: "1rem",
-            }}
-          >
-            .dev
+          <span style={{ display: 'inline-block' }}>Sujal</span>
+          <span style={{ fontSize: '0.95rem', color: 'var(--muted)', fontWeight: 600 }}>.
+            <span className="handwritten-underline">dev</span>
           </span>
         </a>
 
@@ -108,12 +98,6 @@ export default function Navbar() {
                 animationDelay: `${i * 0.05}s`,
               }}
               className="nav-link"
-              onMouseEnter={(e) =>
-                ((e.target as HTMLAnchorElement).style.color = "var(--fg)")
-              }
-              onMouseLeave={(e) =>
-                ((e.target as HTMLAnchorElement).style.color = "var(--muted)")
-              }
             >
               {link.label}
             </a>
@@ -128,19 +112,6 @@ export default function Navbar() {
               flexShrink: 0,
             }}
             className="nav-toggle"
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.borderColor =
-                "var(--blue)";
-              (e.currentTarget as HTMLButtonElement).style.color = "var(--blue)";
-              (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                "0 0 0 3px var(--blue-glow)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.borderColor =
-                "var(--border)";
-              (e.currentTarget as HTMLButtonElement).style.color = "var(--muted)";
-              (e.currentTarget as HTMLButtonElement).style.boxShadow = "none";
-            }}
           >
             {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
           </button>
@@ -152,8 +123,8 @@ export default function Navbar() {
               alignItems: "center",
               gap: 6,
               padding: "8px 18px",
-              background: "var(--gradient-primary)",
-              borderRadius: 6,
+              background: "var(--accent)",
+              borderRadius: 8,
               fontSize: "0.82rem",
               fontFamily: "Inter, sans-serif",
               fontWeight: 600,
@@ -162,14 +133,6 @@ export default function Navbar() {
               textDecoration: "none",
             }}
             className="nav-cta"
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 20px rgba(59,130,246,0.45)";
-              (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-1px)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 2px 12px rgba(59,130,246,0.3)";
-              (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
-            }}
           >
             Hire Me ✦
           </a>

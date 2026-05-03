@@ -3,12 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 
-const roles = [
-  "Full Stack Developer & AI Enthusiast.",
-  "Building scalable web applications.",
-  "Crafting intelligent systems.",
-  "Turning ideas into real products.",
-];
+// static subheading — kept simple and human
 
 const stats = [
   { value: "4+", label: "Projects shipped" },
@@ -17,8 +12,7 @@ const stats = [
 ];
 
 export default function Hero() {
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [showCursor, setShowCursor] = useState(true);
+  
   const [canHover] = useState(() =>
     typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches
   );
@@ -29,17 +23,7 @@ export default function Hero() {
   const smoothX = useSpring(mouseX, { stiffness: 60, damping: 20 });
   const smoothY = useSpring(mouseY, { stiffness: 60, damping: 20 });
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setRoleIndex((i) => (i + 1) % roles.length);
-    }, 3500);
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    const blink = setInterval(() => setShowCursor((c) => !c), 530);
-    return () => clearInterval(blink);
-  }, []);
+  // no rotating roles — we use a clear subheading for the user brief
 
   useEffect(() => {
     if (!canHover) return;
@@ -61,103 +45,43 @@ export default function Hero() {
       ref={containerRef}
       className="hero-shell min-h-svh items-center px-4 sm:px-6 pt-28 pb-20 md:pt-40 md:pb-32 mx-auto relative overflow-hidden w-full"
     >
-      {/* Parallax dot grid */}
-      <motion.div
-        style={{
-          position: "absolute",
-          inset: -40,
-          backgroundImage:
-            "radial-gradient(circle, var(--border) 1.5px, transparent 1.5px)",
-          backgroundSize: "28px 28px",
-          opacity: 0.4,
-          pointerEvents: "none",
-          x: smoothX,
-          y: smoothY,
-        }}
-      />
-
-      {/* Blue glowing orb — top right */}
-      <motion.div
-        style={{
-          position: "absolute",
-          top: "15%",
-          right: "5%",
-          width: 420,
-          height: 420,
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%)",
-          opacity: 0.8,
-          pointerEvents: "none",
-          x: smoothX,
-          y: smoothY,
-          filter: "blur(48px)",
-        }}
-      />
-
-      {/* Purple glowing orb — bottom left */}
-      <motion.div
-        style={{
-          position: "absolute",
-          bottom: "20%",
-          left: "5%",
-          width: 300,
-          height: 300,
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(139,92,246,0.10) 0%, transparent 70%)",
-          opacity: 0.7,
-          pointerEvents: "none",
-          filter: "blur(48px)",
-        }}
-      />
+      {/* Decorative glows removed for a calmer, warmer canvas */}
 
       <div
         style={{ position: "relative", zIndex: 1, maxWidth: 860, width: "100%" }}
         className="hero-copy"
       >
-        {/* Status badge */}
+        {/* Small status badge — subtle */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.08 }}
           style={{
             display: "inline-flex",
             alignItems: "center",
             gap: 8,
-            marginBottom: 32,
-            padding: "6px 14px",
-            background: "rgba(59,130,246,0.08)",
-            border: "1px solid rgba(59,130,246,0.2)",
-            borderRadius: 100,
-            fontSize: "0.75rem",
-            color: "var(--blue)",
-            letterSpacing: "0.06em",
+            marginBottom: 28,
+            padding: "6px 12px",
+            background: "color-mix(in srgb, var(--surface) 98%, transparent)",
+            border: "1px solid var(--border)",
+            borderRadius: 999,
+            fontSize: "0.78rem",
+            color: "var(--muted)",
+            letterSpacing: "0.04em",
             fontFamily: "Inter, sans-serif",
             fontWeight: 500,
             marginInline: "auto",
           }}
         >
-          <span
-            style={{
-              width: 7,
-              height: 7,
-              borderRadius: "50%",
-              background: "#4ade80",
-              display: "inline-block",
-              boxShadow: "0 0 6px #4ade80",
-              animation: "softPulse 2s infinite",
-            }}
-          />
           Open to Work · April 2026
         </motion.div>
 
         {/* Main headline */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          style={{ marginBottom: 16 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          style={{ marginBottom: 12 }}
         >
           <h1
             style={{
@@ -170,86 +94,49 @@ export default function Hero() {
               textAlign: "center",
             }}
           >
-            Hi, I&apos;m{" "}
-            <span
-              style={{
-                background: "var(--gradient-text)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Sujal Kumar
-            </span>
+            Hi, I&apos;m <span className="handwritten-underline">Sujal Kumar</span> <span style={{fontSize:'1.05em', marginLeft:8}}>👋</span>
           </h1>
         </motion.div>
 
-        {/* Animated role line */}
-        <div
+        {/* Subtitle / subheading */}
+        <motion.h2
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.45, duration: 0.6 }}
           style={{
-            fontSize: "clamp(1rem, 2.5vw, 1.3rem)",
-            fontFamily: "Inter, sans-serif",
-            fontWeight: 300,
+            fontSize: "clamp(1rem, 2.4vw, 1.3rem)",
             color: "var(--muted)",
-            marginBottom: 28,
-            minHeight: "2em",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            maxWidth: 640,
+            lineHeight: 1.6,
+            marginBottom: 22,
+            fontFamily: "Inter, sans-serif",
+            fontWeight: 400,
+            marginInline: "auto",
             textAlign: "center",
           }}
         >
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={roleIndex}
-              initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              exit={{ opacity: 0, y: -8, filter: "blur(4px)" }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              style={{ display: "inline-block" }}
-            >
-              {roles[roleIndex]}
-            </motion.span>
-          </AnimatePresence>
-          <span
-            style={{
-              opacity: showCursor ? 1 : 0,
-              color: "var(--blue)",
-              transition: "opacity 0.1s",
-              marginLeft: 2,
-              fontWeight: 300,
-            }}
-          >
-            |
-          </span>
-        </div>
+          Full Stack Developer & AI Enthusiast
+        </motion.h2>
 
-        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.7 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
           style={{
             fontSize: "1rem",
             color: "var(--muted)",
-            maxWidth: 500,
-            lineHeight: 1.85,
-            marginBottom: 48,
+            maxWidth: 560,
+            lineHeight: 1.7,
+            marginBottom: 40,
             fontFamily: "Inter, sans-serif",
             fontWeight: 300,
             marginInline: "auto",
             textAlign: "center",
           }}
         >
-          Building scalable{" "}
-          <strong style={{ color: "var(--fg)", fontWeight: 500 }}>
-            web applications
-          </strong>{" "}
-          and{" "}
-          <strong style={{ color: "var(--fg)", fontWeight: 500 }}>
-            intelligent systems
-          </strong>{" "}
-          that solve real problems — not just pass interviews.
+          I build practical web apps and AI tools that help people get things done —
+          straightforward, dependable, and focused on real users. Let me show you
+          what I&apos;ve made.
         </motion.p>
 
         {/* CTAs */}
@@ -261,7 +148,7 @@ export default function Hero() {
           className="hero-actions"
         >
           <MagneticButton href="#projects" primary>
-            View Projects →
+            View Projects
           </MagneticButton>
           <MagneticButton href="#contact" primary={false}>
             Contact Me
@@ -312,14 +199,14 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* Scroll Down indicator */}
+        {/* Scroll Down indicator (kept subtle) */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
+          transition={{ delay: 1.0, duration: 0.6 }}
           style={{
             position: "absolute",
-            bottom: -52,
+            bottom: -36,
             left: "50%",
             transform: "translateX(-50%)",
             display: "flex",
@@ -327,7 +214,7 @@ export default function Hero() {
             alignItems: "center",
             gap: 6,
             color: "var(--muted)",
-            fontSize: "0.7rem",
+            fontSize: "0.72rem",
             fontFamily: "DM Mono, monospace",
             letterSpacing: "0.08em",
             cursor: "default",
@@ -338,10 +225,10 @@ export default function Hero() {
             animate={{ y: [0, 6, 0] }}
             transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
             style={{
-              width: 1,
+              width: 2,
               height: 28,
-              background:
-                "linear-gradient(to bottom, var(--border), transparent)",
+              background: "linear-gradient(to bottom, var(--border), transparent)",
+              borderRadius: 2,
             }}
           />
         </motion.div>
@@ -361,15 +248,7 @@ export default function Hero() {
   );
 }
 
-function MagneticButton({
-  href,
-  children,
-  primary,
-}: {
-  href: string;
-  children: React.ReactNode;
-  primary: boolean;
-}) {
+function MagneticButton({ href, children, primary }: { href: string; children: React.ReactNode; primary: boolean; }) {
   const ref = useRef<HTMLAnchorElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -384,7 +263,11 @@ function MagneticButton({
     x.set((e.clientX - cx) * 0.25);
     y.set((e.clientY - cy) * 0.25);
   };
-  const handleMouseLeave = () => { x.set(0); y.set(0); };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
 
   return (
     <motion.a
@@ -396,29 +279,22 @@ function MagneticButton({
         display: "inline-flex",
         alignItems: "center",
         gap: 8,
-        padding: "13px 28px",
-        background: primary
-          ? "linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)"
-          : "transparent",
+        padding: primary ? "12px 22px" : "10px 18px",
+        background: primary ? "var(--accent)" : "transparent",
         color: primary ? "#fff" : "var(--fg)",
         border: primary ? "none" : "1px solid var(--border)",
         borderRadius: 8,
-        fontSize: "0.9rem",
+        fontSize: "0.95rem",
         fontFamily: "Inter, sans-serif",
-        fontWeight: 500,
+        fontWeight: 600,
         letterSpacing: "0.01em",
         textDecoration: "none",
         cursor: "pointer",
         position: "relative",
         overflow: "hidden",
-        boxShadow: primary ? "0 4px 20px rgba(59,130,246,0.3)" : "none",
+        boxShadow: primary ? "0 10px 30px rgba(16,24,32,0.06)" : "none",
       }}
-      whileHover={{
-        scale: 1.04,
-        boxShadow: primary
-          ? "0 8px 32px rgba(59,130,246,0.4)"
-          : "0 4px 16px rgba(0,0,0,0.1)",
-      }}
+      whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
