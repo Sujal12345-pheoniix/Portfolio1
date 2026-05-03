@@ -19,6 +19,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>("dark");
   const [mounted, setMounted] = useState(false);
 
+  const apply = (t: Theme) => {
+    document.documentElement.classList.remove("light", "dark");
+    if (t === "light") document.documentElement.classList.add("light");
+  };
+
   useEffect(() => {
     const stored = localStorage.getItem("theme") as Theme | null;
     const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -26,14 +31,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       : "light";
     const initial = stored ?? preferred;
     apply(initial);
-    setTheme(initial);
-    setMounted(true);
+    queueMicrotask(() => {
+      setTheme(initial);
+      setMounted(true);
+    });
   }, []);
-
-  const apply = (t: Theme) => {
-    document.documentElement.classList.remove("light", "dark");
-    if (t === "light") document.documentElement.classList.add("light");
-  };
 
   const toggle = () => {
     const next = theme === "dark" ? "light" : "dark";
