@@ -59,7 +59,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={containerRef}
-      className="hero-shell min-h-svh flex items-center px-4 sm:px-6 pt-28 pb-20 md:pt-40 md:pb-32 mx-auto relative overflow-hidden w-full"
+      className="hero-shell min-h-svh items-center px-4 sm:px-6 pt-28 pb-20 md:pt-40 md:pb-32 mx-auto relative overflow-hidden w-full"
     >
       {/* Parallax dot grid */}
       <motion.div
@@ -112,7 +112,10 @@ export default function Hero() {
         }}
       />
 
-      <div style={{ position: "relative", zIndex: 1, maxWidth: 860, width: "100%" }}>
+      <div
+        style={{ position: "relative", zIndex: 1, maxWidth: 860, width: "100%" }}
+        className="hero-copy"
+      >
         {/* Status badge */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -132,6 +135,7 @@ export default function Hero() {
             letterSpacing: "0.06em",
             fontFamily: "Inter, sans-serif",
             fontWeight: 500,
+            marginInline: "auto",
           }}
         >
           <span
@@ -163,6 +167,7 @@ export default function Hero() {
               lineHeight: 1.08,
               letterSpacing: "-0.03em",
               color: "var(--fg)",
+              textAlign: "center",
             }}
           >
             Hi, I&apos;m{" "}
@@ -190,6 +195,8 @@ export default function Hero() {
             minHeight: "2em",
             display: "flex",
             alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
           }}
         >
           <AnimatePresence mode="wait">
@@ -230,6 +237,8 @@ export default function Hero() {
             marginBottom: 48,
             fontFamily: "Inter, sans-serif",
             fontWeight: 300,
+            marginInline: "auto",
+            textAlign: "center",
           }}
         >
           Building scalable{" "}

@@ -212,6 +212,7 @@ export default function About() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
         style={{ marginBottom: 72, position: "relative", zIndex: 1 }}
+        className="section-title-wrap"
       >
         <p
           style={{
@@ -253,6 +254,7 @@ export default function About() {
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
+            className="section-copy"
           >
             <p
               style={{

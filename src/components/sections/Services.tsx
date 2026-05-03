@@ -77,7 +77,7 @@ export default function Services() {
     <section id="services" className="section-stack section-alt" style={{ background: "var(--surface)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)", padding: "0 24px" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         {/* Header */}
-        <motion.div ref={ref} initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} style={{ marginBottom: 56, textAlign: "center" }}>
+        <motion.div ref={ref} initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} style={{ marginBottom: 56, textAlign: "center" }} className="section-title-wrap">
           <p style={{ fontSize: "0.72rem", fontFamily: "DM Mono, monospace", color: "var(--blue)", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 14 }}>Work with me</p>
           <h2 style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", fontFamily: "Georgia, serif", fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1.15, color: "var(--fg)", marginBottom: 18 }}>
             Hire Sujal For...

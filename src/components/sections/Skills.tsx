@@ -165,6 +165,7 @@ export default function Skills() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
         style={{ marginBottom: 64 }}
+        className="section-title-wrap"
       >
         <p
           style={{

@@ -23,7 +23,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="section-stack" style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
-      <motion.div ref={ref} initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} style={{ marginBottom: 64, textAlign: "center" }}>
+      <motion.div ref={ref} initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} style={{ marginBottom: 64, textAlign: "center" }} className="section-title-wrap">
         <p style={{ fontSize: "0.72rem", fontFamily: "DM Mono, monospace", color: "var(--blue)", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 14 }}>What people say</p>
         <h2 style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", fontFamily: "Georgia, serif", fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1.15, color: "var(--fg)" }}>Testimonials</h2>
       </motion.div>

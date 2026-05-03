@@ -85,7 +85,8 @@ export default function Contact() {
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          style={{ marginBottom: 64, textAlign: "center" }}
+            style={{ marginBottom: 64, textAlign: "center" }}
+            className="section-title-wrap"
         >
           <p style={{ fontSize: "0.72rem", fontFamily: "DM Mono, monospace", color: "var(--blue)", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 14 }}>
             Let&apos;s talk
