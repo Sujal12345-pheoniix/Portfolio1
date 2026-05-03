@@ -30,7 +30,7 @@ learned:
 "Building AI for real-world sports taught me that user-generated data is highly inconsistent — different camera angles, lighting, and poses affect accuracy. I improved my problem-solving by handling noisy data, optimizing API performance, and designing systems that deliver meaningful feedback despite imperfect inputs.",
     stack: ["Next.js", "Node.js", "CricAPI", "OpenAI", "MongoDB", "Tailwind"],
     github: "https://github.com/Sujal12345-pheoniix/Crick-Buddy",
-    live: "#",
+    live: "https://www.crickbuddy.tech/",
   },
   {
     id: "AI-Interview-Stimulator",
