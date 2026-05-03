@@ -19,6 +19,9 @@ const stats = [
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
+  const [canHover] = useState(() =>
+    typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches
+  );
   const containerRef = useRef<HTMLDivElement>(null);
 
   const mouseX = useMotionValue(0);
@@ -39,6 +42,7 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
+    if (!canHover) return;
     const handleMouse = (e: MouseEvent) => {
       const rect = containerRef.current?.getBoundingClientRect();
       if (!rect) return;
@@ -49,13 +53,13 @@ export default function Hero() {
     };
     window.addEventListener("mousemove", handleMouse);
     return () => window.removeEventListener("mousemove", handleMouse);
-  }, [mouseX, mouseY]);
+  }, [canHover, mouseX, mouseY]);
 
   return (
     <section
       id="hero"
       ref={containerRef}
-      className="min-h-[100svh] flex items-center px-6 pt-32 pb-24 md:pt-40 md:pb-32 max-w-[1100px] mx-auto relative overflow-hidden w-full"
+      className="hero-shell min-h-svh flex items-center px-4 sm:px-6 pt-28 pb-20 md:pt-40 md:pb-32 mx-auto relative overflow-hidden w-full"
     >
       {/* Parallax dot grid */}
       <motion.div
@@ -108,7 +112,7 @@ export default function Hero() {
         }}
       />
 
-      <div style={{ position: "relative", zIndex: 1, maxWidth: 860 }}>
+      <div style={{ position: "relative", zIndex: 1, maxWidth: 860, width: "100%" }}>
         {/* Status badge */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -244,7 +248,8 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.65, duration: 0.5 }}
-          style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 72 }}
+          style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 64 }}
+          className="hero-actions"
         >
           <MagneticButton href="#projects" primary>
             View Projects →
@@ -259,13 +264,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.85, duration: 0.6 }}
-          className="flex flex-col md:flex-row gap-8 md:gap-0 border-t border-[var(--border)] pt-8"
+          className="hero-stats flex flex-col md:flex-row gap-8 md:gap-0 border-t border-border pt-8"
         >
           {stats.map((stat, i) => (
             <div
               key={stat.label}
               className={`flex-1 ${
-                i < stats.length - 1 ? "md:pr-7 md:border-r border-[var(--border)]" : ""
+                i < stats.length - 1 ? "md:pr-7 md:border-r border-border" : ""
               } ${i > 0 ? "md:pl-7" : ""}`}
             >
               <p
@@ -306,6 +311,7 @@ export default function Hero() {
           style={{
             position: "absolute",
             bottom: -60,
+            bottom: -52,
             left: "50%",
             transform: "translateX(-50%)",
             display: "flex",
@@ -337,6 +343,10 @@ export default function Hero() {
         @keyframes softPulse {
           0%, 100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.5); }
           50% { box-shadow: 0 0 0 5px rgba(74,222,128,0); }
+        }
+
+        @media (max-width: 640px) {
+          .hero-shell { align-items: flex-start; }
         }
       `}</style>
     </section>

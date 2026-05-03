@@ -190,6 +190,7 @@ function ProjectCard({
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+      className="project-card"
       style={{ perspective: "1200px" }}
     >
       <motion.div
@@ -259,6 +260,7 @@ function ProjectCard({
         <div style={{ position: "relative", zIndex: 1 }}>
           {/* Header */}
           <div
+            data-project-header
             style={{
               padding: "28px 32px 0",
               display: "flex",
@@ -387,6 +389,7 @@ function ProjectCard({
 
           {/* Tagline */}
           <p
+            data-project-tagline
             style={{
               margin: "10px 32px 22px",
               fontSize: "0.92rem",
@@ -400,6 +403,7 @@ function ProjectCard({
 
           {/* Tabs */}
           <div
+            data-project-tabs
             style={{
               display: "flex",
               gap: 0,
@@ -412,6 +416,7 @@ function ProjectCard({
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
+                data-project-tab
                 style={{
                   padding: "10px 18px",
                   background: activeTab === tab.key ? "var(--bg)" : "transparent",
@@ -438,7 +443,7 @@ function ProjectCard({
           </div>
 
           {/* Tab content */}
-          <div style={{ padding: "22px 32px" }}>
+          <div data-project-body style={{ padding: "22px 32px" }}>
             <AnimatePresence mode="wait">
               <motion.p
                 key={activeTab}
@@ -463,6 +468,7 @@ function ProjectCard({
 
           {/* Footer: stack */}
           <div
+            data-project-footer
             style={{
               padding: "14px 32px 26px",
               display: "flex",
@@ -513,10 +519,11 @@ export default function Projects() {
   return (
     <section
       id="projects"
+      className="section-stack"
       style={{
         maxWidth: 1100,
         margin: "0 auto",
-        padding: "120px 24px",
+        padding: "0 24px",
         position: "relative",
       }}
     >
@@ -608,6 +615,11 @@ export default function Projects() {
         @media (max-width: 768px) {
           .projects-grid { grid-template-columns: 1fr !important; }
           .projects-grid > div { grid-column: 1 !important; }
+          .project-card { transform: none !important; }
+        }
+
+        @media (max-width: 480px) {
+          .projects-grid { gap: 18px; }
         }
       `}</style>
     </section>

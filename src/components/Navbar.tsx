@@ -41,21 +41,26 @@ export default function Navbar() {
       }}
       className={scrolled ? "glass" : ""}
     >
-      <nav
+      <div
         style={{
           maxWidth: 1100,
           margin: "0 auto",
           padding: "0 24px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
         }}
       >
+        <nav
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "100%",
+          }}
+        >
         {/* Logo */}
         <a
           href="#"
           style={{
-            fontFamily: "Georgia, serif",
+            fontFamily: "Outfit, sans-serif",
             fontSize: "1.1rem",
             fontWeight: 700,
             letterSpacing: "-0.03em",
@@ -100,9 +105,9 @@ export default function Navbar() {
                 color: "var(--muted)",
                 letterSpacing: "0.01em",
                 fontWeight: 400,
-                transition: "color 0.2s ease",
                 animationDelay: `${i * 0.05}s`,
               }}
+              className="nav-link"
               onMouseEnter={(e) =>
                 ((e.target as HTMLAnchorElement).style.color = "var(--fg)")
               }
@@ -119,18 +124,10 @@ export default function Navbar() {
             aria-label="Toggle theme"
             style={{
               background: "none",
-              border: "1px solid var(--border)",
-              borderRadius: "50%",
-              width: 34,
-              height: 34,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
               color: "var(--muted)",
-              transition: "all 0.2s ease",
               flexShrink: 0,
             }}
+            className="nav-toggle"
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLButtonElement).style.borderColor =
                 "var(--blue)";
@@ -162,10 +159,9 @@ export default function Navbar() {
               fontWeight: 600,
               color: "#fff",
               letterSpacing: "0.01em",
-              transition: "all 0.25s ease",
-              boxShadow: "0 2px 12px rgba(59,130,246,0.3)",
               textDecoration: "none",
             }}
+            className="nav-cta"
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 20px rgba(59,130,246,0.45)";
               (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-1px)";
@@ -182,23 +178,24 @@ export default function Navbar() {
         {/* Mobile toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="show-mobile"
+          className="show-mobile nav-toggle"
           style={{
-            background: "none",
-            border: "none",
             cursor: "pointer",
             color: "var(--fg)",
           }}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
           aria-label="Menu"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
-      </nav>
+        </nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
         {open && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -207,13 +204,14 @@ export default function Navbar() {
               borderTop: "1px solid var(--border)",
               overflow: "hidden",
             }}
+            className="menu-panel"
           >
             <div
               style={{
                 padding: "20px 24px",
                 display: "flex",
                 flexDirection: "column",
-                gap: "16px",
+                gap: "8px",
               }}
             >
               {navLinks.map((link) => (
@@ -227,6 +225,7 @@ export default function Navbar() {
                     fontFamily: "Inter, sans-serif",
                     fontWeight: 400,
                   }}
+                  className="menu-item"
                 >
                   {link.label}
                 </a>
@@ -246,6 +245,7 @@ export default function Navbar() {
                   color: "#fff",
                   textDecoration: "none",
                 }}
+                className="nav-cta"
               >
                 Hire Me ✦
               </a>
@@ -262,6 +262,7 @@ export default function Navbar() {
                   textAlign: "left",
                   fontFamily: "Inter, sans-serif",
                 }}
+                className="menu-chip"
               >
                 {theme === "dark" ? "☀ Light mode" : "☾ Dark mode"}
               </button>
@@ -269,6 +270,8 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      </div>
 
       <style>{`
         @media (min-width: 640px) { .show-mobile { display: none; } }
