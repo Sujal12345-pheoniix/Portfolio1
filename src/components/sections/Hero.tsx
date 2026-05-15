@@ -100,7 +100,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 1.2 }}
-          className="mt-12 flex gap-6"
+          className="mt-12 flex flex-col sm:flex-row gap-4 sm:gap-6 items-center justify-center"
         >
           <MagneticButton href="#projects" primary>
             Explore Work
@@ -157,8 +157,8 @@ function MagneticButton({ href, children, primary }: { href: string; children: R
       ref={ref}
       href={href}
       style={{ x: sx, y: sy }}
-      className={`relative overflow-hidden rounded-full font-medium tracking-wide transition-colors duration-300 flex items-center justify-center ${
-        primary ? "bg-white text-black hover:bg-gray-200" : "bg-transparent text-white border border-white/20 hover:bg-white/5"
+      className={`relative overflow-hidden rounded-full font-medium tracking-wide transition-colors duration-300 flex items-center justify-center border border-white/20 ${
+        primary ? "bg-black text-white hover:bg-white/10" : "bg-transparent text-white hover:bg-white/5"
       }`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
