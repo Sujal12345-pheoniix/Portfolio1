@@ -133,13 +133,21 @@ export default function Contact() {
               })}
             </div>
 
-            {/* Download Resume */}
-            <motion.a href="/sujal_kumar_resume.pdf" download="Sujal_Kumar_Resume.pdf"
-              whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}
-              style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginTop: 20, padding: "12px 20px", background: "var(--gradient-primary)", borderRadius: 8, fontSize: "0.85rem", fontFamily: "Inter, sans-serif", fontWeight: 500, color: "#fff", textDecoration: "none", boxShadow: "0 4px 16px rgba(59,130,246,0.25)" }}
-            >
-              📄 Download Resume
-            </motion.a>
+            {/* Download Resumes */}
+            <div style={{ display: "flex", gap: 12, marginTop: 20 }}>
+              <motion.a href="/sujal_kumar_resume.pdf" download="Sujal_Kumar_Resume.pdf"
+                whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}
+                style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "12px 16px", background: "var(--gradient-primary)", borderRadius: 8, fontSize: "0.85rem", fontFamily: "Inter, sans-serif", fontWeight: 500, color: "#fff", textDecoration: "none", boxShadow: "0 4px 16px rgba(59,130,246,0.25)" }}
+              >
+                📄 Resume
+              </motion.a>
+              <motion.a href="/Sujal_Kumar_CV.pdf" download="Sujal_Kumar_CV.pdf"
+                whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}
+                style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "12px 16px", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, fontSize: "0.85rem", fontFamily: "Inter, sans-serif", fontWeight: 500, color: "var(--fg)", textDecoration: "none" }}
+              >
+                🤖 Ai-job
+              </motion.a>
+            </div>
           </motion.div>
 
           {/* Right — Contact Form */}

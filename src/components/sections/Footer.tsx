@@ -66,12 +66,20 @@ export default function Footer() {
                 );
               })}
             </div>
-            <a href="/sujal_kumar_resume.pdf" download="Sujal_Kumar_Resume.pdf"
-              style={{ fontSize: "0.8rem", fontFamily: "DM Mono, monospace", color: "var(--muted)", letterSpacing: "0.04em", transition: "color 0.2s ease" }}
-              onMouseEnter={(e) => { (e.currentTarget).style.color = "var(--fg)"; }}
-              onMouseLeave={(e) => { (e.currentTarget).style.color = "var(--muted)"; }}>
-              📄 Download Resume →
-            </a>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              <a href="/sujal_kumar_resume.pdf" download="Sujal_Kumar_Resume.pdf"
+                style={{ fontSize: "0.8rem", fontFamily: "DM Mono, monospace", color: "var(--muted)", letterSpacing: "0.04em", transition: "color 0.2s ease" }}
+                onMouseEnter={(e) => { (e.currentTarget).style.color = "var(--fg)"; }}
+                onMouseLeave={(e) => { (e.currentTarget).style.color = "var(--muted)"; }}>
+                📄 Download Resume →
+              </a>
+              <a href="/Sujal_Kumar_CV.pdf" download="Sujal_Kumar_CV.pdf"
+                style={{ fontSize: "0.8rem", fontFamily: "DM Mono, monospace", color: "var(--muted)", letterSpacing: "0.04em", transition: "color 0.2s ease" }}
+                onMouseEnter={(e) => { (e.currentTarget).style.color = "var(--fg)"; }}
+                onMouseLeave={(e) => { (e.currentTarget).style.color = "var(--muted)"; }}>
+                🤖 Download Ai-job →
+              </a>
+            </div>
           </div>
         </div>
 
