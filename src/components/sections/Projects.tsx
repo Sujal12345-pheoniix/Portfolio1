@@ -51,7 +51,7 @@ learned:
       "The biggest challenge was creating an AI that felt human enough to provide meaningful practice. I had to fine-tune prompts, handle a wide variety of user responses, and ensure the feedback was constructive. This project taught me a lot about prompt engineering and designing AI interactions that feel natural.",
     stack: ["Next.js", "Node.js", "OpenAI", "MongoDB", "Framer Motion"],
     github: "https://github.com/Sujal12345-pheoniix/Interview-simulator",
-    live: "#",
+    live: "https://interview-simulator-gamma.vercel.app/",
   },
   {
     id: "Saarthi",
