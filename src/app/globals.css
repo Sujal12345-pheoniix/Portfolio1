@@ -361,23 +361,13 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 8px 26px rgba(16,24,32,0.04);
 }
 
-/* Handwritten underline accent — small irregular SVG stroke */
+/* Handwritten underline accent — disabled */
 .handwritten-underline {
   display: inline-block;
   position: relative;
 }
 .handwritten-underline::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -6px;
-  height: 10px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='20' viewBox='0 0 180 20'><path d='M2 10 C40 2, 80 18, 120 8 C150 0, 178 12, 178 12' stroke='%23a8772c' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round' /></svg>");
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.95;
-  transform: translateY(2px);
+  display: none; /* removed decorative underline */
 }
 
 .project-card [data-project-header] {

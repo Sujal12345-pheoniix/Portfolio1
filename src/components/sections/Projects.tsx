@@ -71,7 +71,7 @@ learned:
       "The biggest lesson was learning how to design an AI that can handle multiple domains effectively. I had to ensure that the AI could provide relevant and accurate advice across very different topics, which required careful prompt engineering and a lot of user testing to get right.",
     stack: ["React", "Supabase", "OpenAI", "Tailwind", "Vercel"],
     github: "https://github.com/Sujal12345-pheoniix/Saarthi",
-    live: "https://v0-well-look-ai-app.vercel.app/",
+    live: "https://saarthi-two-gold.vercel.app/",
   },
   {
     id: "Java-DevOps-Toolkit",
