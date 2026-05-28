@@ -74,24 +74,24 @@ learned:
     live: "https://v0-well-look-ai-app.vercel.app/",
   },
   {
-    id: "ai-project-builder",
-    tag: "Developer Tools · AI",
+    id: "Java-DevOps-Toolkit",
+    tag: "DevOps site · Java",
     emoji: "⚡",
-    title: "AI Project Builder",
-    tagline: "From idea to scaffolded codebase in under 60 seconds.",
+    title: "DevTrack",
+    tagline: "A deployment manager manages deployements,tracking and maintainance ",
     color: "#f59e0b",
     colorLight: "rgba(245,158,11,0.08)",
     problem:
-      "Starting a new project means 2 hours of boilerplate, config hell, and decision fatigue before writing a single line of real code.",
+      "1000 of developers make changes on the website get updated per hour so it becomes difficult to track the changes and maintain the codebase and also it becomes difficult to deploy the codebase on the server",
     approach:
-      "Built a tool that takes a plain English idea, generates a project plan, picks the stack, scaffolds the folder structure, and writes starter code.",
+      "Designed a comprehensive DevOps toolkit that streamlines the deployment process, provides real-time tracking of changes, and simplifies codebase maintenance.",
     solution:
-      "Developers went from 'idea to first commit' 10x faster. The tool became a thinking partner, not just a code generator.",
+      "DevTrack offers an intuitive interface for managing deployments, tracking code changes, and maintaining the codebase. It integrates with popular version control systems and deployment platforms to provide a seamless experience for developers, reducing the complexity of DevOps tasks.",
     learned:
-      "The surprising thing? People used it most for ideation, not generation. Sometimes the best feature of a product is the one you didn't design for.",
-    stack: ["Next.js", "LangChain", "OpenAI", "TypeScript", "Docker"],
-    github: "https://github.com",
-    live: "#",
+      "This project taught me a lot about the challenges developers face in managing deployments and maintaining codebases. I had to learn about various DevOps tools and practices to create a solution that truly addresses these pain points, and it gave me a deeper appreciation for the importance of good tooling in software development.",
+    stack: ["Java", "Spring Boot", "Docker", "Kubernetes", "Jenkins"],
+    github: "https://github.com/Sujal12345-pheoniix/DevSecOps",
+    live: "https://dev-sec-ops-delta.vercel.app/login",
   },
 ];
 
