@@ -71,9 +71,7 @@ export default function Navbar() {
           }}
         >
           <span style={{ display: 'inline-block' }}>Sujal</span>
-          <span style={{ fontSize: '0.95rem', color: 'var(--muted)', fontWeight: 600 }}>.
-            <span className="handwritten-underline">dev</span>
-          </span>
+          <span style={{ fontSize: '0.95rem', color: 'var(--muted)', fontWeight: 600 }}>.dev</span>
         </a>
 
         {/* Desktop Links */}

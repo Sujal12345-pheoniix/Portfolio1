@@ -74,24 +74,24 @@ learned:
     live: "https://saarthi-two-gold.vercel.app/",
   },
   {
-    id: "Java-DevOps-Toolkit",
-    tag: "DevOps site · Java",
-    emoji: "⚡",
-    title: "DevTrack",
-    tagline: "A deployment manager manages deployements,tracking and maintainance ",
-    color: "#f59e0b",
-    colorLight: "rgba(245,158,11,0.08)",
+    id: "truthbomb",
+    tag: "Fact Verification · AI",
+    emoji: "💣",
+    title: "TruthBomb",
+    tagline: "Verify information before the internet believes it.",
+    color: "#ef4444",
+    colorLight: "rgba(239,68,68,0.08)",
     problem:
-      "1000 of developers make changes on the website get updated per hour so it becomes difficult to track the changes and maintain the codebase and also it becomes difficult to deploy the codebase on the server",
+      "Misinformation spreads at lightning speed, while manual fact-checking takes hours of research. Similarly, analyzing brand visibility across opaque AI search engines (GEO) is complex and unstructured.",
     approach:
-      "Designed a comprehensive DevOps toolkit that streamlines the deployment process, provides real-time tracking of changes, and simplifies codebase maintenance.",
+      "Built an automated verification pipeline that parses PDF text, extracts claims using LLMs, and queries the live web via Tavily/Brave Search APIs to grade evidence. Also integrated GEO analytics to monitor brand visibility across AI models.",
     solution:
-      "DevTrack offers an intuitive interface for managing deployments, tracking code changes, and maintaining the codebase. It integrates with popular version control systems and deployment platforms to provide a seamless experience for developers, reducing the complexity of DevOps tasks.",
+      "A platform that generates professional, Bloomberg-style fact-check reports in seconds, enabling users to ground claims with real-world sources and track their brand's discoverability in generative search.",
     learned:
-      "This project taught me a lot about the challenges developers face in managing deployments and maintaining codebases. I had to learn about various DevOps tools and practices to create a solution that truly addresses these pain points, and it gave me a deeper appreciation for the importance of good tooling in software development.",
-    stack: ["Java", "Spring Boot", "Docker", "Kubernetes", "Jenkins"],
-    github: "https://github.com/Sujal12345-pheoniix/DevSecOps",
-    live: "https://dev-sec-ops-delta.vercel.app/login",
+      "Building TruthBomb taught me to design resilient query chains and ground LLM outputs using live search context to prevent hallucinations. Optimizing API calls and rate-limiting using Upstash Redis were crucial for real-time performance.",
+    stack: ["Next.js 15", "TypeScript", "Prisma", "OpenAI", "Tavily", "PostgreSQL"],
+    github: "https://github.com/Sujal12345-pheoniix/TruthBomb",
+    live: "#",
   },
 ];
 
