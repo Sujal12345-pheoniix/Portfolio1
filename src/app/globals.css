@@ -36,23 +36,23 @@
 
 /* ── Light Mode ── */
 .light {
-  --bg: #f6efe5;
-  --fg: #18120f;
-  --surface: #efe6da;
-  --surface2: #e5dbcd;
-  --muted: #756d63;
-  --accent: #c96b46;
-  --accent-warm: #a8772c;
-  --accent-glow: rgba(201,107,70,0.12);
-  --border: #d5cbbb;
-  --grain-opacity: 0.028;
-  --blue: #2f72d2;
-  --purple: #7d62d9;
-  --teal: #0f9484;
-  --gradient-primary: linear-gradient(135deg, #c96b46 0%, #7d62d9 100%);
-  --gradient-text: linear-gradient(90deg, #2f72d2 0%, #7d62d9 55%, #0f9484 100%);
-  --blue-glow: rgba(47,114,210,0.12);
-  --purple-glow: rgba(125,98,217,0.10);
+  --bg: #f8fafc;
+  --fg: #0f172a;
+  --surface: #ffffff;
+  --surface2: #f1f5f9;
+  --muted: #475569;
+  --accent: #e05e2b;
+  --accent-warm: #d97706;
+  --accent-glow: rgba(224, 94, 43, 0.08);
+  --border: #e2e8f0;
+  --grain-opacity: 0.02;
+  --blue: #2563eb;
+  --purple: #7c3aed;
+  --teal: #0d9488;
+  --gradient-primary: linear-gradient(135deg, #e05e2b 0%, #7c3aed 100%);
+  --gradient-text: linear-gradient(90deg, #2563eb 0%, #7c3aed 50%, #0d9488 100%);
+  --blue-glow: rgba(37, 99, 235, 0.08);
+  --purple-glow: rgba(124, 58, 237, 0.08);
 }
 
 /* ── Base Reset ── */

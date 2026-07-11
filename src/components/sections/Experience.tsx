@@ -6,9 +6,23 @@ import { motion, useInView } from "framer-motion";
 const experiences = [
   {
     title: "Full Stack Developer",
-    company: "Freelance / Self-employed",
-    duration: "Jan 2025 – Present",
+    company: "Kenzo Infosystem Pvt. Ltd.",
+    duration: "Jul 2026 – Present",
     type: "Full-time",
+    bullets: [
+      "Architecting and shipping high-performance full-stack web applications and AI integrations",
+      "Designing responsive frontend architectures using React, Next.js, and Tailwind CSS",
+      "Building scalable REST and GraphQL APIs with Node.js, Express, and modern databases",
+      "Implementing clean design patterns, micro-interactions, and premium canvas animations",
+    ],
+    color: "#67a1ff",
+    highlight: true,
+  },
+  {
+    title: "Full Stack Developer",
+    company: "Freelance / Self-employed",
+    duration: "Jan 2025 – Jun 2026",
+    type: "Freelance",
     bullets: [
       "Built and shipped 4+ production applications including AI-powered tools and sports platforms",
       "Designed scalable REST APIs with Node.js & Express, integrated with MongoDB and PostgreSQL",
