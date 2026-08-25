@@ -11,36 +11,43 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Sujal Kumar — Full Stack Developer & AI Builder",
+  title: "Sujal Kumar — Software Engineer | Full-Stack & Backend Development",
   description:
-    "Full Stack Developer & AI Enthusiast. Building scalable web applications and intelligent systems that solve real problems.",
+    "Software Engineer specializing in full-stack and backend development. Building enterprise applications — HRMS, ERP, Expense Management, Digital Adoption Platforms, and AI-powered systems.",
   icons: {
     icon: "/favicon (1).ico",
     shortcut: "/favicon (1).ico",
     apple: "/favicon (1).ico",
   },
   keywords: [
-    "developer",
-    "full stack",
-    "AI",
-    "Next.js",
-    "React",
-    "portfolio",
     "Sujal Kumar",
+    "Software Engineer",
+    "Full Stack Developer",
+    "Backend Developer",
+    "Next.js",
+    "NestJS",
+    "React",
+    "TypeScript",
+    "PostgreSQL",
+    "HRMS",
+    "Enterprise Software",
+    "RBAC",
+    "REST API",
+    "portfolio",
   ],
   authors: [{ name: "Sujal Kumar" }],
   creator: "Sujal Kumar",
   openGraph: {
-    title: "Sujal Kumar — Full Stack Developer & AI Builder",
+    title: "Sujal Kumar — Software Engineer | Full-Stack & Backend Development",
     description:
-      "Building scalable web applications and intelligent systems.",
+      "Building full-stack and enterprise applications — HRMS, ERP, Expense Management, Digital Adoption Platforms, and AI-powered systems.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sujal Kumar — Full Stack Developer & AI Builder",
-    description: "Full Stack Developer & AI Enthusiast.",
+    title: "Sujal Kumar — Software Engineer | Full-Stack & Backend",
+    description: "Software Engineer building enterprise applications and scalable backend systems.",
   },
 };
 

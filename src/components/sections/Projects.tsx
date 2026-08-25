@@ -6,90 +6,102 @@ import { GitBranch, ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    id: "crick-buddy",
-    tag: "Sports · AI",
-    emoji: "🏏",
-    title: "Crick-Buddy",
-    tagline: "Your AI-powered cricket companion.",
+    id: "kenzo-hrms",
+    tag: "Enterprise · HRMS",
+    emoji: "🏢",
+    title: "Kenzo Kore HRMS",
+    tagline: "A modular HR system managing the full employee lifecycle with role-based access and centralized data.",
+    color: "#67a1ff",
+    colorLight: "rgba(103,161,255,0.08)",
+    problem:
+      "Managing employee records, attendance, leaves, and departmental structures across an organization is complex when data is scattered, manually tracked, or stored client-side — creating inconsistencies and access control gaps that affect HR operations.",
+    approach:
+      "Developed a modular HR management system with Next.js and NestJS, backed by PostgreSQL and Prisma. Implemented server-side state management for attendance and leave workflows, replacing client-side tracking with centralized database records. Secured sensitive data access through role and department-based API authorization.",
+    solution:
+      "A production-ready HRMS supporting employee lifecycle tracking, departmental mappings, attendance workflows, and leave requests. Admins and employees operate through role-specific dashboards with access boundaries enforced at the API layer — not just the UI.",
+    learned:
+      "The core engineering challenge was moving from client-side data patterns to reliable, server-persisted state. Designing the RBAC logic to be granular enough for department-level permissions without becoming unmanageable required careful schema and middleware design.",
+    stack: ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Prisma", "RBAC"],
+    github: "#",
+    live: "#",
+  },
+  {
+    id: "kenzo-expense",
+    tag: "Enterprise · Finance",
+    emoji: "💳",
+    title: "Kenzo Kore Expense Tracker",
+    tagline: "End-to-end expense management — from employee submission to admin approval, fully digitized.",
     color: "#14b8a6",
     colorLight: "rgba(20,184,166,0.08)",
-   problem:
-
-"Cricket players, especially at the grassroots level in India, lack access to personalized coaching, performance analysis, and structured guidance. Most rely on generic advice from YouTube or local coaches, with no data-driven feedback on their technique or progress.",
-
-approach:
-
-"Built an AI-powered platform that analyzes player performance using computer vision. Users can upload their batting, bowling, or posture images/videos, and the system evaluates their technique using pose estimation and angle calculations. Integrated an AI coach to provide personalized training advice and structured improvement plans.",
-
-solution:
-
-"A unified cricket training platform that combines AI-based technique analysis, progress tracking, and coaching support. Players receive instant feedback on their form, track improvement over time with visual dashboards, and get smart recommendations for drills and fitness — all in one place.",
-
-learned:
-
-"Building AI for real-world sports taught me that user-generated data is highly inconsistent — different camera angles, lighting, and poses affect accuracy. I improved my problem-solving by handling noisy data, optimizing API performance, and designing systems that deliver meaningful feedback despite imperfect inputs.",
-    stack: ["Next.js", "Node.js", "CricAPI", "OpenAI", "MongoDB", "Tailwind"],
-    github: "https://github.com/Sujal12345-pheoniix/Crick-Buddy",
-    live: "https://www.crickbuddy.tech/",
-  },
-  {
-    id: "AI-Interview-Stimulator",
-
-    tag: "AI · Fullstack",
-    emoji: "🤖",
-    title: "AI-Interview-Stimulator",
-    tagline: "Preparing for interviews is stressful. What if AI could do the practice rounds?",
-    color: "#3b82f6",
-    colorLight: "rgba(59,130,246,0.08)",
     problem:
-      "Interview prep is broken. Mock interviews with friends are awkward and inconsistent. Professional services are expensive and hard to schedule. Candidates often go in underprepared, leading to anxiety and missed opportunities.",
+      "Organizations relying on manual expense reporting face data inconsistencies, missing documentation, and slow approval cycles. There's no centralized view of where money is being spent, and employees have no visibility into the status of their claims.",
     approach:
-      "Built an AI-powered interview simulator that generates realistic coding and behavioral questions based on the user's target role and company. The system provides instant feedback on answers, tracks progress over time, and adapts question difficulty based on performance.",
+      "Built a full-stack expense management system with Next.js and NestJS. Engineered RBAC logic to separate employee submission workflows from admin approval flows. Implemented bill/invoice attachment handling and designed a dynamic dashboard for itemized tracking at both individual and organization levels.",
     solution:
-      "Candidates can practice anytime with a responsive AI interviewer that mimics real interview scenarios. The platform offers personalized feedback, identifies weak areas, and helps users build confidence through consistent practice.",
+      "A complete expense lifecycle platform — employees submit categorized expenses with attachments, admins review and approve or reject claims, and both roles get real-time dashboards showing itemized records and organization-level financial summaries.",
     learned:
-      "The biggest challenge was creating an AI that felt human enough to provide meaningful practice. I had to fine-tune prompts, handle a wide variety of user responses, and ensure the feedback was constructive. This project taught me a lot about prompt engineering and designing AI interactions that feel natural.",
-    stack: ["Next.js", "Node.js", "OpenAI", "MongoDB", "Framer Motion"],
-    github: "https://github.com/Sujal12345-pheoniix/Interview-simulator",
-    live: "https://interview-simulator-gamma.vercel.app/",
+      "Designing the approval state machine was the most interesting challenge — ensuring state transitions were atomic, auditable, and reflected immediately in both dashboards. Keeping authorization boundaries clean between roles required consistent middleware enforcement across all API routes.",
+    stack: ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Prisma", "RBAC"],
+    github: "#",
+    live: "https://kenzo-kore-expense.vercel.app/",
   },
   {
-    id: "Saarthi",
-    tag: "Personalcare · AI",
-    emoji: "📋",
-    title: "Saarthi ",
-    tagline: "skincare , mental health, fitness, and career guidance. Your AI-powered personal assistant for holistic well-being.",
+    id: "kenzo-dap",
+    tag: "Enterprise · Platform",
+    emoji: "🧭",
+    title: "Kenzo Digital Adoption Platform",
+    tagline: "Contextual walkthroughs and user guidance injected directly into enterprise web applications.",
     color: "#8b5cf6",
     colorLight: "rgba(139,92,246,0.08)",
     problem:
-      "People struggle to manage different aspects of their lives — from skincare routines to mental health, fitness goals, and career planning. Existing solutions are fragmented, overwhelming, and often lack personalization, leading to inconsistent self-care and growth.",
+      "Organizations deploying new software face slow adoption rates. Users abandon workflows because they lack in-context guidance — static documentation is rarely consulted, and onboarding is either expensive or absent.",
     approach:
-      "Built an AI-powered personal assistant that integrates skincare advice, mental health support, fitness coaching, and career guidance into one platform. Users can input their goals and challenges, and the AI provides tailored recommendations, tracks progress, and offers motivation across all areas of well-being.",
+      "Built a system for injecting contextual user guidance (walkthroughs) into web applications without modifying the target application's source. Engineered PostgreSQL schemas to manage project-specific configurations, user progress tracking, and contextual step triggers. Built analytics tracking for user events to observe onboarding behavior.",
     solution:
-      "A unified platform that helps users take control of their well-being with personalized AI guidance. Whether it's optimizing a skincare routine, managing stress, creating a workout plan, or navigating career decisions, Saarthi provides actionable insights and support in one place.",
+      "A platform where admins create and manage step-by-step walkthroughs per application, and end users receive contextual guidance overlaid on their actual workflows. Progress is persisted per user, and analytics surface where users drop off during onboarding flows.",
     learned:
-      "The biggest lesson was learning how to design an AI that can handle multiple domains effectively. I had to ensure that the AI could provide relevant and accurate advice across very different topics, which required careful prompt engineering and a lot of user testing to get right.",
-    stack: ["React", "Supabase", "OpenAI", "Tailwind", "Vercel"],
-    github: "https://github.com/Sujal12345-pheoniix/Saarthi",
-    live: "https://saarthi-two-gold.vercel.app/",
+      "The architectural challenge was building a system that works as an overlay on top of any existing web app without coupling to its internals. Designing the trigger engine — matching DOM state to contextual steps — required careful schema modeling for flexible, application-agnostic configuration.",
+    stack: ["React", "Node.js", "PostgreSQL", "Analytics", "RBAC"],
+    github: "#",
+    live: "https://kenzo-dap.onrender.com/",
+  },
+  {
+    id: "kenzo-erp",
+    tag: "Enterprise · ERP",
+    emoji: "⚙️",
+    title: "Kenzo OneERP",
+    tagline: "A unified business management platform with modules for finance, inventory, and natural language data querying.",
+    color: "#f59e0b",
+    colorLight: "rgba(245,158,11,0.08)",
+    problem:
+      "Businesses managing finance and inventory data across disconnected tools struggle with slow data retrieval, manual lookups, and no unified view. Querying structured business records requires technical knowledge, creating bottlenecks for business users.",
+    approach:
+      "Designed a unified ERP platform using FastAPI and Python, backed by PostgreSQL. Implemented Redis caching to optimize retrieval speeds for frequently accessed business records. Integrated RAG-ready pipelines that allow structured business data to be queried via natural language, reducing the technical barrier for data access.",
+    solution:
+      "A modular ERP platform with finance and inventory modules, role-based access, and a Redis-accelerated data layer. The RAG integration allows business users to query their own data conversationally — no SQL or dashboards required.",
+    learned:
+      "Implementing Redis caching effectively required understanding the data access patterns — not everything benefits from caching, and invalidation logic needs to be deliberate. Designing the RAG pipeline to work on structured tabular data (rather than documents) required a different chunking and retrieval approach.",
+    stack: ["FastAPI", "Python", "PostgreSQL", "Redis", "RAG"],
+    github: "#",
+    live: "https://kenzo-one-erp.vercel.app/",
   },
   {
     id: "truthbomb",
-    tag: "Fact Verification · AI",
+    tag: "AI · Verification",
     emoji: "💣",
     title: "TruthBomb",
-    tagline: "Verify information before the internet believes it.",
+    tagline: "AI-powered fact verification — from raw claims to sourced, structured reports in seconds.",
     color: "#ef4444",
     colorLight: "rgba(239,68,68,0.08)",
     problem:
-      "Misinformation spreads at lightning speed, while manual fact-checking takes hours of research. Similarly, analyzing brand visibility across opaque AI search engines (GEO) is complex and unstructured.",
+      "Misinformation spreads rapidly while manual fact-checking is slow, inconsistent, and doesn't scale. Existing tools don't provide structured, sourced reports — they surface information without grading or aggregating evidence.",
     approach:
-      "Built an automated verification pipeline that parses PDF text, extracts claims using LLMs, and queries the live web via Tavily/Brave Search APIs to grade evidence. Also integrated GEO analytics to monitor brand visibility across AI models.",
+      "Implemented a RAG pipeline coordinating AI-assisted fact verification across multiple models. Designed API endpoints to manage verification requests and route claims through retrieval and grading stages. Implemented a Redis caching layer to store and retrieve recent query results, reducing redundant external API calls.",
     solution:
-      "A platform that generates professional, Bloomberg-style fact-check reports in seconds, enabling users to ground claims with real-world sources and track their brand's discoverability in generative search.",
+      "A verification platform that takes a claim, retrieves live evidence via search APIs, grades it against multiple AI models, and generates a structured report with source citations. Redis caching ensures performance for repeated or trending claim types.",
     learned:
-      "Building TruthBomb taught me to design resilient query chains and ground LLM outputs using live search context to prevent hallucinations. Optimizing API calls and rate-limiting using Upstash Redis were crucial for real-time performance.",
-    stack: ["Next.js 15", "TypeScript", "Prisma", "OpenAI", "Tavily", "PostgreSQL"],
+      "Grounding LLM outputs in retrieved evidence significantly reduces hallucination — but the quality of the retrieval step is the real bottleneck. Designing the query decomposition and evidence aggregation stages required the most iteration.",
+    stack: ["FastAPI", "PostgreSQL", "Redis", "RAG", "Multi-model AI"],
     github: "https://github.com/Sujal12345-pheoniix/TruthBomb",
     live: "#",
   },
@@ -279,33 +291,35 @@ function ProjectCard({
               >
                 <GitBranch size={13} />
               </a>
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Live Demo"
-                style={{
-                  width: 32,
-                  height: 32,
-                  borderRadius: "50%",
-                  border: "1px solid var(--border)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "var(--muted)",
-                  transition: "all 0.2s ease",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.borderColor = project.color;
-                  (e.currentTarget as HTMLAnchorElement).style.color = project.color;
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)";
-                  (e.currentTarget as HTMLAnchorElement).style.color = "var(--muted)";
-                }}
-              >
-                <ExternalLink size={13} />
-              </a>
+              {project.live !== "#" && (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Live Demo"
+                  style={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: "50%",
+                    border: "1px solid var(--border)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "var(--muted)",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = project.color;
+                    (e.currentTarget as HTMLAnchorElement).style.color = project.color;
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)";
+                    (e.currentTarget as HTMLAnchorElement).style.color = "var(--muted)";
+                  }}
+                >
+                  <ExternalLink size={13} />
+                </a>
+              )}
               <span
                 style={{
                   fontFamily: "DM Mono, monospace",
@@ -529,16 +543,20 @@ export default function Projects() {
         }}
         className="projects-grid"
       >
-        {/* First card spans full width */}
+        {/* HRMS spans full width */}
         <div style={{ gridColumn: "1 / -1" }}>
           <ProjectCard project={projects[0]} index={0} />
         </div>
-        {/* Next two side by side */}
+        {/* Expense Tracker + DAP side by side */}
         <ProjectCard project={projects[1]} index={1} />
         <ProjectCard project={projects[2]} index={2} />
-        {/* Last spans full */}
+        {/* OneERP spans full width */}
         <div style={{ gridColumn: "1 / -1" }}>
           <ProjectCard project={projects[3]} index={3} />
+        </div>
+        {/* TruthBomb spans full width */}
+        <div style={{ gridColumn: "1 / -1" }}>
+          <ProjectCard project={projects[4]} index={4} />
         </div>
       </div>
 

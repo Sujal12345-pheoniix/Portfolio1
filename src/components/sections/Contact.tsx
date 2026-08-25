@@ -95,8 +95,8 @@ export default function Contact() {
             Have something worth building?
           </h2>
           <p style={{ fontSize: "1rem", color: "var(--muted)", lineHeight: 1.8, fontFamily: "Inter, sans-serif", fontWeight: 300, maxWidth: 520, margin: "0 auto" }}>
-            Have a project in mind or want to discuss the latest in AI? I&apos;m open to
-            freelance work, full-time roles, and interesting collaborations.
+            Open to full-time Software Engineer roles, interesting collaborations, and technical discussions.
+            Reach out if you&apos;re working on something worth building.
           </p>
         </motion.div>
 
@@ -133,19 +133,13 @@ export default function Contact() {
               })}
             </div>
 
-            {/* Download Resumes */}
+            {/* Download Resume */}
             <div style={{ display: "flex", gap: 12, marginTop: 20 }}>
-              <motion.a href="/sujal_kumar_resume.pdf" download="Sujal_Kumar_Resume.pdf"
+              <motion.a href="/Sujal_Kumar_SDE_Resume (6).pdf" download="Sujal_Kumar_Resume.pdf"
                 whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}
                 style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "12px 16px", background: "var(--gradient-primary)", borderRadius: 8, fontSize: "0.85rem", fontFamily: "Inter, sans-serif", fontWeight: 500, color: "#fff", textDecoration: "none", boxShadow: "0 4px 16px rgba(59,130,246,0.25)" }}
               >
-                📄 Resume
-              </motion.a>
-              <motion.a href="/Sujal_Kumar_CV.pdf" download="Sujal_Kumar_CV.pdf"
-                whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}
-                style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "12px 16px", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, fontSize: "0.85rem", fontFamily: "Inter, sans-serif", fontWeight: 500, color: "var(--fg)", textDecoration: "none" }}
-              >
-                🤖 Ai-job
+                📄 Download Resume
               </motion.a>
             </div>
           </motion.div>

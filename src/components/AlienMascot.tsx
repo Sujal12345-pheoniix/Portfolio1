@@ -248,7 +248,11 @@ export default function AlienMascot() {
       // ─── DRAW BODY (TORSO) ───
       ctx.fillStyle = data.accentColor;
       ctx.beginPath();
-      ctx.roundRect(bodyCenterX - 13, 44 + bobY, 26, 28, 12);
+      if (typeof ctx.roundRect === "function") {
+        ctx.roundRect(bodyCenterX - 13, 44 + bobY, 26, 28, 12);
+      } else {
+        ctx.rect(bodyCenterX - 13, 44 + bobY, 26, 28);
+      }
       ctx.fill();
       ctx.stroke();
 

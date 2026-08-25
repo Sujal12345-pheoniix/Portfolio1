@@ -32,7 +32,7 @@ export default function Footer() {
               Sujal<span style={{ background: "var(--gradient-text)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "1.2rem" }}>.dev</span>
             </a>
             <p style={{ fontSize: "0.88rem", color: "var(--muted)", lineHeight: 1.75, fontFamily: "Inter, sans-serif", fontWeight: 300, marginTop: 12 }}>
-              Full Stack Developer &amp; AI Enthusiast. Building scalable web applications and intelligent systems that solve real problems.
+              Software Engineer building full-stack and enterprise applications — HRMS, ERP, Expense Management, and AI-powered systems.
             </p>
           </div>
 
@@ -67,17 +67,11 @@ export default function Footer() {
               })}
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-              <a href="/sujal_kumar_resume.pdf" download="Sujal_Kumar_Resume.pdf"
+              <a href="/Sujal_Kumar_SDE_Resume (6).pdf" download="Sujal_Kumar_Resume.pdf"
                 style={{ fontSize: "0.8rem", fontFamily: "DM Mono, monospace", color: "var(--muted)", letterSpacing: "0.04em", transition: "color 0.2s ease" }}
                 onMouseEnter={(e) => { (e.currentTarget).style.color = "var(--fg)"; }}
                 onMouseLeave={(e) => { (e.currentTarget).style.color = "var(--muted)"; }}>
                 📄 Download Resume →
-              </a>
-              <a href="/Sujal_Kumar_CV.pdf" download="Sujal_Kumar_CV.pdf"
-                style={{ fontSize: "0.8rem", fontFamily: "DM Mono, monospace", color: "var(--muted)", letterSpacing: "0.04em", transition: "color 0.2s ease" }}
-                onMouseEnter={(e) => { (e.currentTarget).style.color = "var(--fg)"; }}
-                onMouseLeave={(e) => { (e.currentTarget).style.color = "var(--muted)"; }}>
-                🤖 Download Ai-job →
               </a>
             </div>
           </div>

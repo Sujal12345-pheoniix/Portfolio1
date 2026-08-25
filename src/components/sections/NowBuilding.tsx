@@ -5,25 +5,25 @@ import { motion, useInView } from "framer-motion";
 
 const currentBuilds = [
   {
-    title: "AI Resume Optimizer",
+    title: "Kenzo Kore HRMS — Server-side Migration",
     status: "In progress",
-    progress: 65,
-    desc: "Takes a job description + your raw resume and surgically rewrites bullet points to match — without sounding AI-generated.",
-    started: "Mar 2026",
+    progress: 70,
+    desc: "Migrating attendance and leave tracking from client-side patterns to fully server-persisted state with real-time sync across admin and employee dashboards.",
+    started: "Jul 2026",
   },
   {
-    title: "Dev Learning Tracker",
-    status: "Early stage",
-    progress: 25,
-    desc: "A personal tool to log what I'm learning, broken down by topic, resource, and time spent. Scratching my own itch.",
-    started: "Apr 2026",
+    title: "Kenzo DAP — Analytics Layer",
+    status: "In progress",
+    progress: 55,
+    desc: "Expanding the Digital Adoption Platform with richer event analytics — surfacing drop-off points in onboarding flows and user behavior patterns per project.",
+    started: "Aug 2026",
   },
   {
-    title: "Open Source: Form Validator Library",
-    status: "Shipped v0.1",
-    progress: 90,
-    desc: "A lightweight, zero-dependency TypeScript form validation library. Finally fed up with the heaviness of react-hook-form.",
-    started: "Feb 2026",
+    title: "Kenzo OneERP — RAG Pipeline",
+    status: "Active",
+    progress: 80,
+    desc: "Integrating a RAG-ready querying pipeline so business users can access finance and inventory records via natural language — no SQL or dashboards required.",
+    started: "Jul 2026",
   },
 ];
 
@@ -104,7 +104,7 @@ export default function NowBuilding() {
                 animation: "pulse 1.8s infinite",
               }}
             />
-            Updated April 2026
+            Updated August 2026
           </div>
         </motion.div>
 

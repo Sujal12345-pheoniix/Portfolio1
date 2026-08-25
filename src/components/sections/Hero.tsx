@@ -59,7 +59,7 @@ export default function Hero() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           className="inline-block px-4 py-1.5 mb-8 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-white/70 text-xs font-mono uppercase tracking-widest"
         >
-          Creative Engineer
+          Software Engineer · Full-Stack &amp; Backend
         </motion.div>
 
         <div className="overflow-hidden">
@@ -82,7 +82,7 @@ export default function Hero() {
             className="text-[clamp(1.5rem,3vw,3rem)] leading-tight font-light text-white/50 text-center italic"
             style={{ fontFamily: "Georgia, serif" }}
           >
-            Crafting digital experiences.
+            Building enterprise software that works.
           </motion.h2>
         </div>
 
@@ -92,8 +92,8 @@ export default function Hero() {
           transition={{ duration: 1.5, ease: "linear", delay: 1 }}
           className="mt-8 text-lg md:text-xl text-white/40 max-w-2xl text-center font-light leading-relaxed"
         >
-          I build cinematic web applications and intelligent AI tools. <br className="hidden md:block"/>
-          Bridging the gap between robust engineering and experimental design.
+          I build full-stack and enterprise applications with a focus on backend systems, APIs, databases, and scalable multi-user workflows. <br className="hidden md:block"/>
+          Recent work spans HRMS, ERP, Expense Management, Digital Adoption, and AI-powered verification.
         </motion.p>
 
         <motion.div

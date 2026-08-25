@@ -16,8 +16,8 @@ const quickActions = [
   { icon: MessageSquare, label: "DROP A MESSAGE", href: "#contact" },
 ];
 
-const designations = ["SDE", "Frontend Developer", "Backend Developer", "Full Stack Developer", "ML-Operation", "AI-Builder"];
-const workAreas = ["Frontend Architecture", "Backend System", "Full Stack Project", "AI-Integration", "Other"];
+const designations = ["Software Engineer (SDE)", "Full Stack Developer", "Backend Developer", "Frontend Developer", "Solutions Engineer", "Forward Deployed Engineer", "Other"];
+const workAreas = ["Full Stack Development", "Backend Systems & APIs", "Database Design", "Enterprise Applications", "RBAC & Authentication", "AI / RAG Integration", "Other"];
 
 const FORMSUBMIT_URL = "https://formsubmit.co/ajax/sujalreal983@gmail.com";
 

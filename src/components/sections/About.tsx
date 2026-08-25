@@ -4,16 +4,16 @@ import { useRef, useState, useCallback } from "react";
 import { motion, useInView } from "framer-motion";
 
 const quickFacts = [
-  { icon: "🏏", label: "Built Crick-Buddy", desc: "A real AI cricket companion app — because I love cricket and hated juggling 5 apps." },
-  { icon: "🤖", label: "AI-first mindset", desc: "Most of my recent work sits at the intersection of AI and practical product design." },
-  { icon: "🛠", label: "Full-stack focus", desc: "Comfortable from database schema to UI animation — I like owning the whole thing." },
+  { icon: "🏢", label: "Building at Kenzo", desc: "Currently engineering enterprise products — HRMS, Expense Management, ERP, and a Digital Adoption Platform." },
+  { icon: "⚙️", label: "Backend-first thinking", desc: "I design systems starting from the database and API layer. The UI reflects the data model, not the other way." },
+  { icon: "🔐", label: "RBAC & multi-user systems", desc: "Most of my production work involves role-based access, multi-user workflows, and data that needs to be trustworthy." },
   { icon: "📍", label: "Based in India", desc: "Building, learning, and shipping from here." },
 ];
 
 const values = [
-  { title: "Real problems over vanity metrics", body: "I'd rather build something 10 people genuinely need than something impressive that nobody uses." },
-  { title: "Clarity over complexity", body: "Good code should be boring to read. Good UX should feel obvious. Complexity is almost always a choice." },
-  { title: "Ship, then improve", body: "Done beats perfect. I'd rather have something live and learning from real users than polished in a drawer." },
+  { title: "Understand the workflow first", body: "Before writing any code, I map out the actual business process. The schema and API design follow from that — not the reverse." },
+  { title: "Authorization belongs at the API layer", body: "UI-level access control is cosmetic. Real security means enforcing permissions in middleware and database queries, every time." },
+  { title: "Data integrity over speed of delivery", body: "Shipping fast matters — but not if the data model has to be redone in six months. I'd rather design it right and iterate on features." },
 ];
 
 /* 3D wireframe graphic that floats beside the About section */
@@ -248,7 +248,7 @@ export default function About() {
               color: "var(--fg)",
             }}
           >
-            Developer.<br />Builder.<br />Problem-solver.
+            Engineer.<br />Builder.<br />Systems thinker.
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, x: 30 }}
@@ -266,7 +266,7 @@ export default function About() {
                 marginBottom: 18,
               }}
             >
-              I&apos;m Sujal Kumar — a full-stack developer who gravitates toward AI-powered products and systems that solve real, tangible problems.
+              I&apos;m Sujal Kumar — a software engineer focused on building systems that solve real operational problems. My current work involves enterprise applications: HR workflows, expense management, business data platforms, and user adoption tooling.
             </p>
             <p
               style={{
@@ -277,7 +277,7 @@ export default function About() {
                 fontWeight: 300,
               }}
             >
-              I care less about which framework is trending and more about whether the thing I&apos;m building actually works for the people using it.
+              I care about database design, API integrity, and access control as much as I care about the interface. The best software is the kind that&apos;s boring to maintain — because the architecture was thought through from the start.
             </p>
           </motion.div>
         </div>
